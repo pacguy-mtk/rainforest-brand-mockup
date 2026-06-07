@@ -698,7 +698,7 @@
 
     .service-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 16px;
     }
 
@@ -708,6 +708,14 @@
       flex-direction: column;
       gap: 12px;
       overflow: hidden;
+    }
+
+    .service.is-tinted {
+      background:
+        radial-gradient(circle at top right, rgba(168, 187, 159, 0.18), transparent 34%),
+        linear-gradient(180deg, rgba(248, 244, 235, 0.96), rgba(230, 238, 224, 0.92));
+      border-color: rgba(90, 115, 95, 0.14);
+      box-shadow: 0 18px 40px rgba(90, 115, 95, 0.08);
     }
 
     .service .icon {
@@ -732,6 +740,13 @@
       box-shadow: inset 0 0 0 1px rgba(255,255,255,0.35);
     }
 
+    .service-media.is-fit {
+      padding: 12px;
+      background:
+        radial-gradient(circle at top right, rgba(168, 187, 159, 0.18), transparent 36%),
+        linear-gradient(180deg, rgba(248, 244, 235, 0.9), rgba(240, 235, 225, 0.92));
+    }
+
     .service-media img {
       width: 100%;
       height: 100%;
@@ -740,9 +755,20 @@
       transition: transform 360ms ease, filter 360ms ease;
     }
 
+    .service-media.is-fit img {
+      object-fit: contain;
+      object-position: center;
+      transform: scale(1);
+    }
+
     .service:hover .service-media img {
       transform: scale(1.06);
       filter: saturate(1.03) contrast(1.01);
+    }
+
+    .service:hover .service-media.is-fit img {
+      transform: scale(1.035);
+      filter: saturate(1.02) contrast(1.01);
     }
 
     .service h3 {
@@ -1132,7 +1158,7 @@
               <button class="slider-arrow next" type="button" id="heroNext" aria-label="Next hero slide">
                 <span>›</span>
               </button>
-              <figure class="slide">
+              <figure class="slide active">
                 <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/00.jpeg?raw=true" alt="Product hero shot on a stone surface with rainforest leaves" />
                 <figcaption class="slide-caption">
                   <div class="slide-badge">Our product</div>
@@ -1197,7 +1223,7 @@
 
           <div class="gallery">
             <div class="gallery-main">
-              <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/01.jpeg?raw=true alt="Product family showcase with bottles, cream jars, and matching outer boxes" />
+              <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/01.jpeg?raw=true" alt="Product family showcase with bottles, cream jars, and matching outer boxes" />
               <div class="overlay">
                 <strong>Product family</strong>
                 <span>Matching bottle, jar, and box systems to keep the brand visually stable.</span>
@@ -1246,7 +1272,7 @@
           </div>
 
           <div class="service-grid">
-            <div class="card service">
+            <div class="card service is-tinted">
               <div class="icon">01</div>
               <div class="service-media">
                 <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/packaging-consistency.jpeg?raw=true" alt="Packaging consistency booth visual for the brand" />
@@ -1264,15 +1290,15 @@
             </div>
             <div class="card service">
               <div class="icon">03</div>
-              <div class="service-media">
+              <div class="service-media is-fit">
                 <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/launch-support.jpeg?raw=true" alt="Launch support visual for the brand" />
               </div>
               <h3>Launch support</h3>
               <p>Homepage, booth visuals, and product story materials that feel ready for market.</p>
             </div>
-            <div class="card service">
+            <div class="card service is-tinted">
               <div class="icon">04</div>
-              <div class="service-media">
+              <div class="service-media is-fit">
                 <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/trust-communication.jpeg?raw=true" alt="Trust communication visual for the brand" />
               </div>
               <h3>Trust communication</h3>
@@ -1477,7 +1503,8 @@
       const prevButton = document.getElementById('heroPrev');
       const nextButton = document.getElementById('heroNext');
       const videos = slides.map((slide) => slide.querySelector('video')).filter(Boolean);
-      let index = 0;
+      let index = slides.findIndex((slide) => slide.classList.contains('active'));
+      if (index < 0) index = 0;
       let timer = null;
 
       document.querySelectorAll('img, video').forEach((media) => {
@@ -1511,6 +1538,10 @@
       });
 
       const dots = Array.from(dotsWrap.querySelectorAll('.dot'));
+
+      if (!slides[index].classList.contains('active')) {
+        slides[index].classList.add('active');
+      }
 
       function goTo(next, manual) {
         const currentSlide = slides[index];
