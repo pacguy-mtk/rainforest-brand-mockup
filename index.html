@@ -3,22 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Beauty Cottage | Tropical Rainforest Regime</title>
+  <meta
+    name="description"
+    content="Mireva Botanics is a clean botanical beauty portfolio page focused on product presentation, packaging, trust signals, and launch-ready brand storytelling."
+  />
+  <link rel="icon" href="https://raw.githubusercontent.com/pacguy-mtk/rainforest-brand-mockup/1e3a8f5d78c8cd3f2e33be411a9765d1e8126980/favicon.svg" type="image/svg+xml" />
+  <title>Mireva Botanics | created by Mireva Lab</title>
   <style>
     :root {
-      --bg: #f6f0e7;
-      --bg-2: #eee4d5;
-      --surface: rgba(255, 250, 242, 0.82);
-      --surface-strong: #fffaf2;
+      --bg: #f7f2e9;
+      --bg-alt: #efe6d7;
+      --surface: rgba(255, 251, 245, 0.88);
+      --surface-strong: #fffaf4;
       --text: #233128;
       --muted: #5f6d62;
-      --sage: #809a82;
-      --sage-2: #a8bb9f;
-      --leaf: #5a735f;
-      --stone: #c7b79e;
-      --line: rgba(35, 49, 40, 0.12);
+      --leaf: #5b735e;
+      --sage: #8ea58a;
+      --moss: #6b8269;
+      --stone: #cdbda4;
+      --line: rgba(35, 49, 40, 0.1);
       --shadow: 0 26px 72px rgba(35, 49, 40, 0.14);
-      --shadow-soft: 0 12px 26px rgba(35, 49, 40, 0.08);
+      --shadow-soft: 0 12px 30px rgba(35, 49, 40, 0.08);
       --radius-xl: 34px;
       --radius-lg: 24px;
       --radius-md: 16px;
@@ -31,17 +36,17 @@
       margin: 0;
       color: var(--text);
       font-family: "Aptos", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-      line-height: 1.5;
+      line-height: 1.55;
       background:
-        radial-gradient(circle at 14% 8%, rgba(168, 187, 159, 0.18), transparent 26%),
-        radial-gradient(circle at 84% 10%, rgba(222, 207, 184, 0.36), transparent 24%),
-        linear-gradient(180deg, #fbf8f2 0%, var(--bg) 46%, #f7f1e7 100%);
+        radial-gradient(circle at 12% 10%, rgba(142, 165, 138, 0.18), transparent 26%),
+        radial-gradient(circle at 88% 6%, rgba(205, 189, 164, 0.34), transparent 24%),
+        linear-gradient(180deg, #fbf8f2 0%, var(--bg) 48%, #f7f1e6 100%);
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
 
     a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
+    img, video { display: block; max-width: 100%; }
 
     .page {
       position: relative;
@@ -73,7 +78,7 @@
       top: 0;
       z-index: 30;
       backdrop-filter: blur(16px);
-      background: linear-gradient(180deg, rgba(251, 248, 242, 0.94), rgba(251, 248, 242, 0.62));
+      background: linear-gradient(180deg, rgba(251, 248, 242, 0.96), rgba(251, 248, 242, 0.64));
       border-bottom: 1px solid rgba(35, 49, 40, 0.08);
     }
 
@@ -93,20 +98,26 @@
     }
 
     .mark {
-      width: 46px;
-      height: 46px;
+      width: 48px;
+      height: 48px;
       border-radius: 16px;
       display: grid;
       place-items: center;
-      border: 1px solid rgba(90, 115, 95, 0.16);
-      background: linear-gradient(145deg, rgba(127, 152, 128, 0.18), rgba(255,255,255,0.9));
+      border: 1px solid rgba(91, 115, 94, 0.16);
+      background:
+        linear-gradient(145deg, rgba(142, 165, 138, 0.18), rgba(255,255,255,0.92));
       box-shadow: var(--shadow-soft);
+      color: var(--leaf);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
       flex: 0 0 auto;
     }
 
     .brand strong {
       display: block;
-      font-size: 1.04rem;
+      font-size: 1.05rem;
       font-family: Georgia, "Times New Roman", serif;
       letter-spacing: 0.02em;
     }
@@ -147,31 +158,13 @@
     .nav a:hover::after { transform: scaleX(1); }
 
     .hero {
-      padding: 24px 0 24px;
-    }
-
-    .hero-stage {
-      position: relative;
-      min-height: min(88vh, 940px);
-      border-radius: 0;
-      overflow: hidden;
-      border: none;
-      box-shadow: none;
-      background: #efe8dc;
-      width: 100vw;
-      margin-left: calc(50% - 50vw);
-    }
-
-    .hero-media {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
+      padding: 24px 0 22px;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.04fr 0.96fr;
-      gap: 22px;
+      grid-template-columns: 1fr;
+      gap: 0;
       align-items: stretch;
     }
 
@@ -179,8 +172,8 @@
       border-radius: var(--radius-xl);
       border: 1px solid rgba(35, 49, 40, 0.1);
       background:
-        radial-gradient(circle at top right, rgba(168, 187, 159, 0.14), transparent 30%),
-        linear-gradient(180deg, rgba(255,255,255,0.82), rgba(255,255,255,0.64));
+        radial-gradient(circle at top right, rgba(142, 165, 138, 0.13), transparent 30%),
+        linear-gradient(180deg, rgba(255,255,255,0.84), rgba(255,255,255,0.66));
       box-shadow: var(--shadow);
       overflow: hidden;
       position: relative;
@@ -191,35 +184,7 @@
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background:
-        radial-gradient(circle at bottom left, rgba(222, 207, 184, 0.18), transparent 28%);
-    }
-
-    .hero-copy {
-      padding: clamp(28px, 5vw, 54px);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 100%;
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      padding: clamp(22px, 4vw, 44px);
-      background:
-        linear-gradient(180deg, rgba(26, 34, 28, 0.03) 0%, rgba(26, 34, 28, 0.12) 100%);
-    }
-
-    .hero-copy.dark .eyebrow {
-      background: rgba(255,255,255,0.18);
-      color: #f4f1ea;
-      border: 1px solid rgba(255,255,255,0.16);
-      backdrop-filter: blur(10px);
+      background: radial-gradient(circle at bottom left, rgba(205, 189, 164, 0.16), transparent 28%);
     }
 
     .eyebrow {
@@ -229,7 +194,7 @@
       width: fit-content;
       padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(127, 152, 128, 0.12);
+      background: rgba(142, 165, 138, 0.12);
       color: var(--leaf);
       font-size: 0.79rem;
       font-weight: 800;
@@ -239,7 +204,7 @@
 
     h1, h2, h3 {
       margin: 0;
-      line-height: 1.04;
+      line-height: 1.03;
       font-family: Georgia, "Times New Roman", serif;
       font-weight: 600;
       letter-spacing: -0.03em;
@@ -247,13 +212,13 @@
 
     h1 {
       margin-top: 16px;
-      font-size: clamp(2.6rem, 5vw, 5.4rem);
+      font-size: clamp(2.7rem, 5vw, 5.4rem);
       max-width: 11ch;
     }
 
     .lead {
       margin: 18px 0 0;
-      max-width: 58ch;
+      max-width: 56ch;
       font-size: clamp(1rem, 1.2vw, 1.12rem);
       color: var(--muted);
     }
@@ -268,49 +233,57 @@
     .chip {
       padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.72);
+      background: rgba(255,255,255,0.74);
       border: 1px solid rgba(35, 49, 40, 0.08);
       color: var(--muted);
       font-size: 0.86rem;
       white-space: nowrap;
     }
 
-    .trust-row {
+    .hero-points {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 12px;
       margin-top: 28px;
     }
 
-    .trust {
+    .point {
       padding: 14px;
       border-radius: 16px;
       border: 1px solid rgba(35, 49, 40, 0.09);
-      background: rgba(255, 250, 242, 0.72);
+      background: rgba(255, 250, 244, 0.74);
     }
 
-    .trust strong {
+    .point strong {
       display: block;
       margin-bottom: 4px;
       font-size: 0.92rem;
     }
 
-    .trust span {
+    .point span {
       display: block;
       color: var(--muted);
       font-size: 0.86rem;
     }
 
-    .slider {
+    .hero-stage {
       position: relative;
-      width: 100%;
-      height: 100%;
-      border-radius: 0;
-      overflow: hidden;
-      background: #efe8dc;
+      min-height: 100%;
+      padding: 0;
     }
 
-    .slide {
+    .hero-slider {
+      position: relative;
+      height: 100%;
+      min-height: clamp(840px, 92vh, 1120px);
+      border-radius: 40px;
+      overflow: hidden;
+      background: #efe8dc;
+      border: 1px solid rgba(35, 49, 40, 0.1);
+      box-shadow: 0 38px 110px rgba(35, 49, 40, 0.28);
+    }
+
+    .hero-slide {
       position: absolute;
       inset: 0;
       opacity: 0;
@@ -319,60 +292,55 @@
       pointer-events: none;
     }
 
-    .slide.active {
+    .hero-slide.active {
       opacity: 1;
       transform: scale(1);
       pointer-events: auto;
     }
 
-    .slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .slide video {
+    .hero-slide img,
+    .hero-slide video {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
-      background: #efe8dc;
+      border: 0;
     }
 
-    .slide::after {
+    .hero-slide::after {
       content: "";
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(180deg, rgba(12, 20, 15, 0.03), rgba(12, 20, 15, 0.08) 55%, rgba(12, 20, 15, 0.28));
+        linear-gradient(180deg, rgba(8, 12, 9, 0.12), rgba(8, 12, 9, 0.22) 52%, rgba(8, 12, 9, 0.62));
     }
 
-    .slide-caption {
+    .hero-caption {
       position: absolute;
-      left: 22px;
-      right: 22px;
-      bottom: 22px;
+      left: 34px;
+      right: 34px;
+      bottom: 34px;
       z-index: 2;
-      color: #f7f3ec;
+      color: #f8f5ef;
       text-shadow: 0 2px 8px rgba(0,0,0,0.22);
     }
 
-    .slide-caption b {
+    .hero-caption b {
+      display: block;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-size: 1.34rem;
+    }
+
+    .hero-caption span {
       display: block;
       font-size: 1.05rem;
-      letter-spacing: 0.03em;
-      margin-bottom: 4px;
-      text-transform: uppercase;
+      opacity: 0.95;
+      max-width: 46ch;
     }
 
-    .slide-caption span {
-      display: block;
-      max-width: 42ch;
-      font-size: 0.92rem;
-      opacity: 0.94;
-    }
-
-    .slide-badge {
+    .hero-slider .slide-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -432,19 +400,19 @@
       align-items: center;
       justify-content: space-between;
       gap: 14px;
-      padding: 0;
-      background: transparent;
       position: absolute;
-      left: clamp(22px, 4vw, 44px);
-      right: clamp(22px, 4vw, 44px);
-      bottom: 22px;
+      left: 36px;
+      right: 36px;
+      bottom: 28px;
       z-index: 3;
+      pointer-events: none;
     }
 
     .dots {
       display: flex;
       align-items: center;
       gap: 8px;
+      pointer-events: auto;
     }
 
     .dot {
@@ -461,45 +429,18 @@
     .dot.active {
       width: 28px;
       border-radius: 999px;
-      background: linear-gradient(135deg, #5a735f, #7f9880);
+      background: linear-gradient(135deg, #5b735e, #839983);
     }
 
     .slider-note {
       color: rgba(255,255,255,0.86);
       font-size: 0.88rem;
       text-shadow: 0 2px 8px rgba(0,0,0,0.18);
-    }
-
-    .hero-badge {
-      position: absolute;
-      top: clamp(14px, 3vw, 28px);
-      left: clamp(14px, 3vw, 28px);
-      z-index: 3;
-      display: inline-flex;
-      align-items: center;
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.2);
-      color: #f4f1ea;
-      border: 1px solid rgba(255,255,255,0.18);
-      backdrop-filter: blur(10px);
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+      pointer-events: auto;
     }
 
     .section {
       padding: 18px 0 0;
-    }
-
-    .hero-copy.dark .eyebrow {
-      margin-bottom: 2px;
-    }
-
-    .hero-copy.dark .lead {
-      margin-top: 12px;
     }
 
     .section-inner {
@@ -521,7 +462,7 @@
 
     .section-head p {
       margin: 0;
-      max-width: 56ch;
+      max-width: 58ch;
       color: var(--muted);
     }
 
@@ -540,7 +481,7 @@
     .card {
       border-radius: var(--radius-lg);
       border: 1px solid rgba(35, 49, 40, 0.09);
-      background: rgba(255,255,255,0.72);
+      background: rgba(255,255,255,0.74);
       box-shadow: var(--shadow-soft);
       padding: 22px;
       overflow: hidden;
@@ -552,7 +493,7 @@
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background: linear-gradient(135deg, rgba(127, 152, 128, 0.06), transparent 34%);
+      background: linear-gradient(135deg, rgba(142, 165, 138, 0.06), transparent 34%);
     }
 
     .card h3 {
@@ -565,49 +506,9 @@
       color: var(--muted);
     }
 
-    .list {
-      display: grid;
-      gap: 12px;
-      margin-top: 14px;
-    }
-
-    .list-item {
-      display: flex;
-      gap: 12px;
-      align-items: start;
-      padding: 13px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(35, 49, 40, 0.08);
-      background: rgba(255,255,255,0.6);
-    }
-
-    .bullet {
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      flex: 0 0 auto;
-      background: rgba(127, 152, 128, 0.14);
-      color: var(--leaf);
-      font-size: 0.84rem;
-      font-weight: 900;
-    }
-
-    .list-item b {
-      display: block;
-      margin-bottom: 2px;
-    }
-
-    .list-item span {
-      display: block;
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
     .gallery {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
+      grid-template-columns: 1.25fr 0.75fr;
       gap: 18px;
       align-items: stretch;
     }
@@ -615,7 +516,7 @@
     .gallery-main {
       border-radius: 28px;
       overflow: hidden;
-      min-height: 420px;
+      min-height: 430px;
       background: #efe8dc;
       border: 1px solid rgba(35, 49, 40, 0.1);
       box-shadow: var(--shadow-soft);
@@ -637,24 +538,12 @@
     .gallery-main .overlay {
       position: absolute;
       left: 20px;
+      right: 20px;
       bottom: 20px;
       z-index: 2;
       max-width: 46ch;
       color: #f8f5ef;
       text-shadow: 0 2px 8px rgba(0,0,0,0.22);
-    }
-
-    .gallery-main .overlay strong {
-      display: block;
-      font-size: 1.05rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-
-    .gallery-main .overlay span {
-      font-size: 0.92rem;
-      opacity: 0.95;
     }
 
     .thumbs {
@@ -666,7 +555,7 @@
     .thumb {
       border-radius: 24px;
       overflow: hidden;
-      min-height: 196px;
+      min-height: 206px;
       border: 1px solid rgba(35, 49, 40, 0.1);
       background: #efe8dc;
       box-shadow: var(--shadow-soft);
@@ -703,19 +592,18 @@
     }
 
     .service {
-      min-height: 100%;
       display: flex;
       flex-direction: column;
       gap: 12px;
+      min-height: 100%;
       overflow: hidden;
     }
 
     .service.is-tinted {
       background:
-        radial-gradient(circle at top right, rgba(168, 187, 159, 0.18), transparent 34%),
-        linear-gradient(180deg, rgba(248, 244, 235, 0.96), rgba(230, 238, 224, 0.92));
-      border-color: rgba(90, 115, 95, 0.14);
-      box-shadow: 0 18px 40px rgba(90, 115, 95, 0.08);
+        radial-gradient(circle at top right, rgba(142, 165, 138, 0.18), transparent 34%),
+        linear-gradient(180deg, rgba(248, 244, 235, 0.98), rgba(232, 240, 225, 0.94));
+      border-color: rgba(91, 115, 94, 0.14);
     }
 
     .service .icon {
@@ -726,9 +614,10 @@
       place-items: center;
       margin-bottom: 14px;
       color: var(--leaf);
-      background: rgba(127, 152, 128, 0.14);
-      border: 1px solid rgba(90, 115, 95, 0.12);
+      background: rgba(142, 165, 138, 0.14);
+      border: 1px solid rgba(91, 115, 94, 0.12);
       font-weight: 900;
+      font-size: 0.84rem;
     }
 
     .service-media {
@@ -743,8 +632,8 @@
     .service-media.is-fit {
       padding: 12px;
       background:
-        radial-gradient(circle at top right, rgba(168, 187, 159, 0.18), transparent 36%),
-        linear-gradient(180deg, rgba(248, 244, 235, 0.9), rgba(240, 235, 225, 0.92));
+        radial-gradient(circle at top right, rgba(142, 165, 138, 0.18), transparent 36%),
+        linear-gradient(180deg, rgba(248, 244, 235, 0.92), rgba(240, 235, 225, 0.94));
     }
 
     .service-media img {
@@ -758,7 +647,6 @@
     .service-media.is-fit img {
       object-fit: contain;
       object-position: center;
-      transform: scale(1);
     }
 
     .service:hover .service-media img {
@@ -767,21 +655,15 @@
     }
 
     .service:hover .service-media.is-fit img {
-      transform: scale(1.035);
-      filter: saturate(1.02) contrast(1.01);
+      transform: scale(1.03);
     }
 
-    .service h3 {
-      margin-bottom: 0;
-    }
-
-    .service p {
-      margin-top: auto;
-    }
+    .service h3 { margin-bottom: 0; }
+    .service p { margin-top: auto; }
 
     .proof-grid {
       display: grid;
-      grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+      grid-template-columns: minmax(0, 0.74fr) minmax(0, 1.26fr);
       gap: 18px;
       align-items: stretch;
     }
@@ -799,7 +681,7 @@
       padding: 14px;
       border-radius: 16px;
       border: 1px solid rgba(35, 49, 40, 0.08);
-      background: rgba(255,255,255,0.64);
+      background: rgba(255,255,255,0.66);
     }
 
     .proof-item .dotmark {
@@ -807,7 +689,7 @@
       height: 26px;
       border-radius: 50%;
       flex: 0 0 auto;
-      background: rgba(127, 152, 128, 0.14);
+      background: rgba(142, 165, 138, 0.14);
       color: var(--leaf);
       display: grid;
       place-items: center;
@@ -826,52 +708,7 @@
       display: block;
     }
 
-    .proof-visual {
-      border-radius: 28px;
-      overflow: hidden;
-      min-height: 420px;
-      border: 1px solid rgba(35, 49, 40, 0.1);
-      box-shadow: var(--shadow-soft);
-      background: #efe8dc;
-      position: relative;
-    }
-
-    .proof-visual img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 360ms ease, filter 360ms ease;
-    }
-
-    .proof-visual:hover img {
-      transform: scale(1.04);
-      filter: saturate(1.03) contrast(1.01);
-    }
-
-    .proof-visual .overlay {
-      position: absolute;
-      left: 20px;
-      right: 20px;
-      bottom: 18px;
-      color: #f8f5ef;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.22);
-      z-index: 2;
-    }
-
-    .proof-visual .overlay strong {
-      display: block;
-      margin-bottom: 4px;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 18px;
-      align-items: stretch;
-    }
-
+    .proof-visual,
     .about-visual {
       border-radius: 28px;
       overflow: hidden;
@@ -882,6 +719,7 @@
       background: #efe8dc;
     }
 
+    .proof-visual img,
     .about-visual img {
       width: 100%;
       height: 100%;
@@ -889,33 +727,66 @@
       transition: transform 360ms ease, filter 360ms ease;
     }
 
+    .proof-visual:hover img,
     .about-visual:hover img {
       transform: scale(1.04);
       filter: saturate(1.03) contrast(1.01);
     }
 
-    .hero-media img,
-    .hero-media video,
-    .gallery-main img,
-    .thumb img,
-    .service-media img,
-    .proof-visual img,
-    .about-visual img {
-      -webkit-user-drag: none;
-      user-select: none;
-    }
-
+    .proof-visual .overlay,
     .about-visual .overlay {
       position: absolute;
       left: 20px;
-      top: 20px;
-      max-width: 18ch;
-      z-index: 2;
+      right: 20px;
+      bottom: 18px;
       color: #f8f5ef;
       text-shadow: 0 2px 8px rgba(0,0,0,0.22);
+      z-index: 2;
+      max-width: 30ch;
       font-size: 0.92rem;
       line-height: 1.35;
     }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .list {
+      display: grid;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .list-item {
+      display: flex;
+      gap: 12px;
+      align-items: start;
+      padding: 13px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(35, 49, 40, 0.08);
+      background: rgba(255,255,255,0.64);
+    }
+
+    .bullet {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      background: rgba(142, 165, 138, 0.14);
+      color: var(--leaf);
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+
+    .list-item b { display: block; margin-bottom: 2px; }
+    .list-item span { display: block; color: var(--muted); font-size: 0.92rem; }
+
+    .chips.tight { margin-top: 16px; }
 
     .contact-grid {
       display: grid;
@@ -937,7 +808,7 @@
       padding: 14px;
       border-radius: 16px;
       border: 1px solid rgba(35, 49, 40, 0.08);
-      background: rgba(255,255,255,0.64);
+      background: rgba(255,255,255,0.66);
     }
 
     .contact-item .dot {
@@ -945,7 +816,7 @@
       height: 26px;
       border-radius: 50%;
       flex: 0 0 auto;
-      background: rgba(127, 152, 128, 0.14);
+      background: rgba(142, 165, 138, 0.14);
       color: var(--leaf);
       display: grid;
       place-items: center;
@@ -959,252 +830,291 @@
     }
 
     .contact-item span {
+      display: block;
       color: var(--muted);
       font-size: 0.92rem;
     }
 
     .form {
       display: grid;
-      gap: 12px;
+      gap: 14px;
+      margin-top: 16px;
     }
 
     .field {
       display: grid;
-      gap: 7px;
+      gap: 8px;
     }
 
     .field label {
       font-size: 0.86rem;
       color: var(--muted);
-      font-weight: 700;
+      letter-spacing: 0.02em;
     }
 
     .field input,
     .field textarea {
       width: 100%;
       border: 1px solid rgba(35, 49, 40, 0.12);
-      background: rgba(255,255,255,0.74);
       border-radius: 14px;
-      padding: 14px 15px;
+      background: rgba(255,255,255,0.9);
       color: var(--text);
+      padding: 14px 15px;
       font: inherit;
       outline: none;
-      transition: border-color 160ms ease, box-shadow 160ms ease;
+      transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
     }
 
-    .field textarea {
-      min-height: 130px;
-      resize: vertical;
-    }
+    .field textarea { min-height: 128px; resize: vertical; }
 
     .field input:focus,
     .field textarea:focus {
-      border-color: rgba(127, 152, 128, 0.45);
-      box-shadow: 0 0 0 4px rgba(127, 152, 128, 0.12);
+      border-color: rgba(91, 115, 94, 0.34);
+      box-shadow: 0 0 0 4px rgba(142, 165, 138, 0.12);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid rgba(35, 49, 40, 0.14);
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease, box-shadow 160ms ease;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn.primary {
+      background: linear-gradient(135deg, #5b735e, #839983);
+      color: #fff;
+      box-shadow: 0 16px 34px rgba(91, 115, 94, 0.18);
+    }
+
+    .btn.secondary {
+      background: rgba(255,255,255,0.76);
+      color: var(--text);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
     }
 
     .cta {
-      padding: 18px 0 60px;
+      padding: 18px 0 0;
     }
 
     .cta-box {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 18px;
-      align-items: center;
-      padding: 28px 30px;
       border-radius: 30px;
       border: 1px solid rgba(35, 49, 40, 0.1);
       background:
-        radial-gradient(circle at top right, rgba(168, 187, 159, 0.14), transparent 24%),
-        linear-gradient(135deg, rgba(255,255,255,0.84), rgba(242, 236, 227, 0.92));
+        radial-gradient(circle at top right, rgba(142, 165, 138, 0.12), transparent 36%),
+        linear-gradient(180deg, rgba(255,255,255,0.84), rgba(255,255,255,0.66));
       box-shadow: var(--shadow);
+      padding: 30px;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
     }
 
     .cta-box h2 {
-      font-size: clamp(2rem, 3vw, 3.05rem);
-      margin-bottom: 8px;
+      font-size: clamp(2rem, 3vw, 3.1rem);
+      max-width: 14ch;
     }
 
     .cta-box p {
-      margin: 0;
+      max-width: 60ch;
       color: var(--muted);
-      max-width: 58ch;
+      margin: 16px 0 0;
     }
 
     .footer {
-      padding: 0 0 26px;
+      padding: 26px 0 42px;
       text-align: center;
       color: var(--muted);
-      font-size: 0.92rem;
+      font-size: 0.94rem;
+    }
+
+    .footer .logo-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
     }
 
     .leaf {
-      width: 24px;
-      height: 24px;
+      width: 22px;
+      height: 22px;
       fill: none;
-      stroke: var(--leaf);
-      stroke-width: 1.8;
+      stroke: currentColor;
+      stroke-width: 1.7;
       stroke-linecap: round;
       stroke-linejoin: round;
     }
 
-    .logo-row {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
+    .hero-copy .leaf {
+      color: var(--leaf);
+    }
+
+    .muted-small {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .spacer {
+      height: 8px;
     }
 
     @media (max-width: 1100px) {
       .hero-grid,
-      .grid-2,
-      .grid-3,
       .gallery,
-      .service-grid,
       .proof-grid,
       .about-grid,
       .contact-grid,
-      .section-head,
       .cta-box {
         grid-template-columns: 1fr;
+        display: grid;
       }
 
-      .nav { display: none; }
-      .section-head { align-items: start; }
-      .section-head h2 { max-width: none; }
-      .thumbs { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: none; }
-      .thumb { min-height: 220px; }
     }
 
-    @media (max-width: 720px) {
+    @media (max-width: 760px) {
       .wrap { width: min(var(--max), calc(100% - 20px)); }
-      .hero { padding-top: 24px; }
-      .topbar-inner { padding: 12px 0; }
-      .hero-stage { min-height: 82vh; border-radius: 24px; }
-      .slider { border-radius: 0; }
-      .trust-row,
-      .thumbs {
+      .topbar-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav {
+        gap: 12px;
+      }
+      .hero,
+      .section {
+        padding-top: 16px;
+      }
+      .section-inner,
+      .cta-box {
+        padding: 20px;
+      }
+      h1 {
+        max-width: 12ch;
+      }
+      .hero-points,
+      .grid-2,
+      .grid-3,
+      .service-grid {
         grid-template-columns: 1fr;
       }
-      .slider-ui {
-        left: 18px;
-        right: 18px;
-        bottom: 16px;
-        flex-direction: column;
-        align-items: start;
+      .thumbs {
+        grid-template-rows: auto;
       }
-      .slider-arrow {
-        width: 44px;
-        height: 44px;
+      .gallery-main,
+      .thumb,
+      .proof-visual,
+      .about-visual {
+        min-height: 280px;
       }
-      .slider-arrow.prev { left: 10px; }
-      .slider-arrow.next { right: 10px; }
-      .slider-arrow span { font-size: 1.5rem; }
-      .section-inner { padding: 20px; }
-      .cta-box { padding: 22px; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .slide,
-      .dot,
-      .btn,
-      .nav a::after {
-        transition: none !important;
+      .hero-slider {
+        min-height: 620px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="page">
+  <div class="page" id="home">
     <div class="noise"></div>
 
     <header class="topbar">
       <div class="wrap topbar-inner">
-        <a class="brand" href="#home" aria-label="Beauty Cottage home">
-          <div class="mark" aria-hidden="true">
-            <svg class="leaf" viewBox="0 0 24 24">
-              <path d="M12 20c0-6 2.5-11.2 7.2-15"/>
-              <path d="M12 20c0-4.7-2.6-9.1-7.2-11.8"/>
-              <path d="M12 8.2c1.7-2.2 3.8-3.7 6.2-4.6"/>
-              <path d="M12 8.2C10.2 5.8 8 4.3 5.5 3.6"/>
-            </svg>
-          </div>
+        <a class="brand" href="#home" aria-label="Mireva Botanics home">
+          <div class="mark" aria-hidden="true">MB</div>
           <div>
-            <strong>Beauty Cottage</strong>
-            <span>Tropical Rainforest Regime</span>
+            <strong>Mireva Botanics</strong>
+            <span>Natural beauty portfolio</span>
           </div>
         </a>
 
         <nav class="nav" aria-label="Main navigation">
           <a href="#home">Home</a>
-          <a href="#product">Our Product</a>
-          <a href="#service">Our Service</a>
-          <a href="#trusted">Trusted Brand</a>
-          <a href="#about">About Us</a>
-          <a href="#contact">Contact Us</a>
+          <a href="#product">Product</a>
+          <a href="#capabilities">Capabilities</a>
+          <a href="#trust">Trust</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
         </nav>
       </div>
     </header>
 
     <main class="wrap">
-      <section id="home" class="hero">
-        <div class="hero-stage panel" aria-label="Homepage hero gallery">
-          <div class="hero-media">
-            <div class="slider" id="heroSlider">
-              <div class="hero-badge">Natural identity, clear trust</div>
-              <button class="slider-arrow prev" type="button" id="heroPrev" aria-label="Previous hero slide">
-                <span>‹</span>
-              </button>
-              <button class="slider-arrow next" type="button" id="heroNext" aria-label="Next hero slide">
-                <span>›</span>
-              </button>
-              <figure class="slide active">
-                <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/00.jpeg?raw=true" alt="Product hero shot on a stone surface with rainforest leaves" />
-                <figcaption class="slide-caption">
-                  <div class="slide-badge">Our product</div>
-                  <b>Clean hero packshot</b>
-                  <span>The hero product stays central and easy to trust.</span>
-                </figcaption>
-              </figure>
-              <figure class="slide">
-                <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/01.jpeg?raw=true" alt="Product family showcase with bottles and cream jars" />
-                <figcaption class="slide-caption">
-                  <div class="slide-badge">Product family</div>
-                  <b>One-stop product system</b>
-                  <span>Bottles, jars, and boxes feel like one brand world.</span>
-                </figcaption>
-              </figure>
-              <figure class="slide">
-                <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/03.jpeg?raw=true" alt="Infographic explaining the product benefits and trust points" />
-                <figcaption class="slide-caption">
-                  <div class="slide-badge">Trusted brand</div>
-                  <b>Visual trust story</b>
-                  <span>Clear information, compact copy, and strong layout.</span>
-                </figcaption>
-              </figure>
-              <figure class="slide video-slide">
-                <video
-                  src="https://github.com/pacguy-mtk/rainforest-brand-mockup/raw/refs/heads/main/brand-presence.mp4"
-                  poster="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/07.png?raw=true"
-                  muted
-                  playsinline
-                  preload="metadata"
-                  loop
-                  controlsList="nodownload noplaybackrate noremoteplayback"
-                  disablePictureInPicture
-                  aria-label="Brand presence video of the exhibition booth"
-                ></video>
-                <figcaption class="slide-caption">
-                  <div class="slide-badge">Brand presence</div>
-                  <b>Hover-play brand presence</b>
-                  <span>Online and offline identity stay consistent.</span>
-                </figcaption>
-              </figure>
+      <section class="hero">
+        <div class="hero-grid">
+          <div class="panel">
+            <div class="hero-stage" aria-label="Brand media preview">
+              <div class="hero-slider" id="heroSlider">
+                <button class="slider-arrow prev" type="button" id="heroPrev" aria-label="Previous slide">
+                  <span aria-hidden="true">&lsaquo;</span>
+                </button>
+                <button class="slider-arrow next" type="button" id="heroNext" aria-label="Next slide">
+                  <span aria-hidden="true">&rsaquo;</span>
+                </button>
+
+                <figure class="hero-slide active">
+                  <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/00a.jpeg?raw=true" alt="Mireva Botanics hero product shot" />
+                  <figcaption class="hero-caption">
+                    <div class="slide-badge">Hero product</div>
+                    <b>Clean hero packshot</b>
+                    <span>The main visual anchor for the brand story.</span>
+                  </figcaption>
+                </figure>
+
+                <figure class="hero-slide">
+                  <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/01a.jpeg?raw=true" alt="Mireva Botanics product family showcase" />
+                  <figcaption class="hero-caption">
+                    <div class="slide-badge">Product family</div>
+                    <b>One-stop product system</b>
+                    <span>Bottles, jars, and boxes feel like one product family.</span>
+                  </figcaption>
+                </figure>
+
+                <figure class="hero-slide">
+                  <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/03a.jpeg?raw=true" alt="Mireva Botanics trust infographic" />
+                  <figcaption class="hero-caption">
+                    <div class="slide-badge">Trust story</div>
+                    <b>Visual trust evidence</b>
+                    <span>Use this for the supplier evidence or lab narrative.</span>
+                  </figcaption>
+                </figure>
+
+                <figure class="hero-slide">
+                  <video
+                    src="https://github.com/pacguy-mtk/rainforest-brand-mockup/raw/refs/heads/main/brand-presencea.mp4"
+                    poster="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/brand-presencea.jpg?raw=true"
+                    muted
+                    playsinline
+                    preload="metadata"
+                    loop
+                    aria-label="Brand presence video placeholder"
+                  ></video>
+                  <figcaption class="hero-caption">
+                    <div class="slide-badge">Brand motion</div>
+                    <b>Hover-play brand presence</b>
+                    <span>Use your final video or meeting scene here.</span>
+                  </figcaption>
+                </figure>
+              </div>
+
+              <div class="slider-ui">
+                <div class="dots" id="sliderDots" aria-label="Hero slide navigation"></div>
+                <div class="slider-note">Auto sliding hero &bull; smooth fade</div>
+              </div>
             </div>
-          </div>
-          <div class="slider-ui">
-            <div class="dots" id="sliderDots" aria-label="Hero slide navigation"></div>
-            <div class="slider-note">Auto sliding hero • smooth fade</div>
           </div>
         </div>
       </section>
@@ -1213,61 +1123,62 @@
         <div class="panel section-inner">
           <div class="section-head">
             <div>
-              <div class="eyebrow">Our Product</div>
-              <h2>One family, multiple formats.</h2>
+              <div class="eyebrow">Product system</div>
+              <h2>One brand, multiple touchpoints.</h2>
             </div>
             <p>
-              No price talk here. Just a clear product story, the way a brand page should present it.
+              This layout is built to support the product hero, the packaging family, and the
+              one-stop showcase without letting any one asset overwhelm the others.
             </p>
           </div>
 
           <div class="gallery">
             <div class="gallery-main">
-              <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/01.jpeg?raw=true" alt="Product family showcase with bottles, cream jars, and matching outer boxes" />
+              <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/01a.jpeg?raw=true" alt="Product family showcase with matching packaging" />
               <div class="overlay">
                 <strong>Product family</strong>
-                <span>Matching bottle, jar, and box systems to keep the brand visually stable.</span>
+                <span>Use this slot for the main family showcase with bottles, jars, and box mockups.</span>
               </div>
             </div>
 
             <div class="thumbs">
               <div class="thumb">
-                <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/00.jpeg?raw=true" alt="Single product hero shot" />
+                <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/00a.jpeg?raw=true" alt="Single product hero shot" />
                 <div class="caption">Single hero packshot</div>
               </div>
               <div class="thumb">
-                <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/03.jpeg?raw=true" alt="Product infographic with benefits and trust points" />
-                <div class="caption">Clear benefit communication</div>
+                <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/trust-communicationa.jpeg?raw=true" alt="Trust infographic or supplier evidence board" />
+                <div class="caption">Clear trust communication</div>
               </div>
             </div>
           </div>
 
           <div class="grid-3" style="margin-top: 18px;">
             <div class="card">
-              <h3>Clean labels</h3>
-              <p>Front labels stay readable and calm, with enough space for product detail.</p>
+              <h3>Readable labels</h3>
+              <p>Keep the front label calm, generous, and easy to understand from a distance.</p>
             </div>
             <div class="card">
-              <h3>Natural palette</h3>
-              <p>Ivory, sage, and stone tones keep the product aligned with the rainforest mood.</p>
+              <h3>Soft palette</h3>
+              <p>Ivory, eucalyptus, stone, and moss create a clean botanical feeling.</p>
             </div>
             <div class="card">
-              <h3>One-stop system</h3>
-              <p>Boxes and containers are designed as a single visual family, not separate items.</p>
+              <h3>Family logic</h3>
+              <p>Every package should feel like part of the same product line, not a separate design.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="service" class="section">
+      <section id="capabilities" class="section">
         <div class="panel section-inner">
           <div class="section-head">
             <div>
-              <div class="eyebrow">Our Service</div>
-              <h2>What the brand can support.</h2>
+              <div class="eyebrow">Capabilities</div>
+              <h2>What the brand system can support.</h2>
             </div>
             <p>
-              Think of this as brand support, not an agency menu. Short, useful, and client-facing.
+              Keep this section short and practical. It is a portfolio summary, not a sales brochure.
             </p>
           </div>
 
@@ -1275,44 +1186,47 @@
             <div class="card service is-tinted">
               <div class="icon">01</div>
               <div class="service-media">
-                <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/packaging-consistency.jpeg?raw=true" alt="Packaging consistency booth visual for the brand" />
+                <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/packaging-consistencya.jpeg?raw=true" alt="Packaging consistency visual" />
               </div>
               <h3>Packaging consistency</h3>
-              <p>Same logo placement, same color family, same visual logic across SKUs.</p>
+              <p>Same logo placement, same color family, and a stable label grid across SKUs.</p>
             </div>
+
             <div class="card service">
               <div class="icon">02</div>
               <div class="service-media">
-                <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/campaign-assets.jpeg?raw=true" alt="Campaign assets board for the brand" />
+                <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/campaign-assetsa.jpeg?raw=true" alt="Campaign assets visual" />
               </div>
               <h3>Campaign assets</h3>
-              <p>Product shots, model scenes, infographics, and brand presentations that match.</p>
+              <p>Product shots, model scenes, infographics, and launch visuals that feel coherent.</p>
             </div>
+
             <div class="card service">
               <div class="icon">03</div>
               <div class="service-media is-fit">
-                <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/launch-support.jpeg?raw=true" alt="Launch support visual for the brand" />
+                <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/launch-supporta.jpeg?raw=true" alt="Launch support visual" />
               </div>
               <h3>Launch support</h3>
-              <p>Homepage, booth visuals, and product story materials that feel ready for market.</p>
+              <p>Homepage, product story, and display assets that are ready for the market story.</p>
             </div>
+
             <div class="card service is-tinted">
               <div class="icon">04</div>
               <div class="service-media is-fit">
-                <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/trust-communication.jpeg?raw=true" alt="Trust communication visual for the brand" />
+                <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/trust-communicationa.jpeg?raw=true" alt="Trust communication visual" />
               </div>
               <h3>Trust communication</h3>
-              <p>Simple proof points that help the buyer feel safe before choosing the brand.</p>
+              <p>Evidence-led visuals that help the buyer feel safe before choosing the supplier.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="trusted" class="section">
+      <section id="trust" class="section">
         <div class="panel section-inner">
           <div class="section-head">
             <div>
-              <div class="eyebrow">Trusted Brand</div>
+              <div class="eyebrow">Trust</div>
               <h2>How a client can trust the supplier.</h2>
             </div>
           </div>
@@ -1324,36 +1238,41 @@
                 <div class="proof-item">
                   <div class="dotmark">1</div>
                   <div>
-                    <b>Will the packaging stay consistent?</b>
-                    <span>Yes. The box, bottle, jar, and booth all share the same logo, palette, and layout rules.</span>
+                    <b>Will the product stay consistent?</b>
+                    <span>Yes. The bottle, jar, box, and booth should all follow the same visual rules.</span>
                   </div>
                 </div>
                 <div class="proof-item">
                   <div class="dotmark">2</div>
                   <div>
-                    <b>Can I trust the product detail?</b>
-                    <span>Yes. Ingredient panels, usage notes, origin fields, and batch areas are all planned into the mockup.</span>
+                    <b>Can I trust the proof?</b>
+                    <span>Yes. Ingredient, test, and quality-control evidence can be shown clearly.</span>
                   </div>
                 </div>
                 <div class="proof-item">
                   <div class="dotmark">3</div>
                   <div>
                     <b>Can the supplier support launch assets?</b>
-                    <span>Yes. The brand system already covers product images, infographic, exhibition, and homepage storytelling.</span>
+                    <span>Yes. Product, website, exhibition, and customer-pitch visuals can all match.</span>
                   </div>
                 </div>
                 <div class="proof-item">
                   <div class="dotmark">4</div>
                   <div>
-                    <b>Is compliance space prepared?</b>
-                    <span>Yes. The concept allows placeholder areas for certifications, traceability, and market-specific badges.</span>
+                    <b>Is delivery confidence visible?</b>
+                    <span>Yes. Add repeatable packaging, shipment cues, and process markers to the visual story.</span>
                   </div>
                 </div>
               </div>
             </div>
 
             <div class="proof-visual">
-              <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/10.jpeg?raw=true" alt="Trust communication visual for the natural beauty brand" />
+              <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/10.jpeg?raw=true" alt="Lab trust or evidence wall visual for supplier confidence" />
+              <div class="overlay">
+                Supplier evidence wall
+                <div class="spacer"></div>
+                <span>Use this as the lab / quality / delivery proof image for the trust section.</span>
+              </div>
             </div>
           </div>
         </div>
@@ -1363,47 +1282,50 @@
         <div class="panel section-inner">
           <div class="section-head">
             <div>
-              <div class="eyebrow">About Us</div>
+              <div class="eyebrow">About</div>
               <h2>Natural, calm, and consistent.</h2>
             </div>
             <p>
-              A short story is enough when the visual system already carries the brand mood.
+              The goal is to make the brand feel composed and believable across every touchpoint.
             </p>
           </div>
 
           <div class="about-grid">
             <div class="about-visual">
-              <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/packaging-consistency.jpeg?raw=true" alt="Packaging consistency visual for the natural beauty brand" />
+              <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/packaging-consistencya.jpeg?raw=true" alt="Customer meeting and trust conversation visual" />
               <div class="overlay">
-                Fresh, believable beauty storytelling with real natural light.
+                The deal is made by trust, not by pressure.
               </div>
             </div>
 
             <div class="card">
               <h3>Brand story</h3>
               <p>
-                Beauty Cottage feels like a rainforest-inspired natural beauty brand: gentle, grounded,
-                and designed to look trustworthy on a homepage, on packaging, and inside a booth.
+                Mireva Botanics is a fictional botanical beauty brand built for portfolio
+                presentation. It is designed to feel grounded, premium, and commercially usable
+                without relying on the original reference identity.
               </p>
+
               <div class="list">
                 <div class="list-item">
-                  <div class="bullet">✓</div>
-                  <div><b>Ivory base</b><span>Keeps the page soft and premium without losing warmth.</span></div>
+                  <div class="bullet">01</div>
+                  <div><b>Ivory base</b><span>Soft, warm, and easy to read.</span></div>
                 </div>
                 <div class="list-item">
-                  <div class="bullet">✓</div>
-                  <div><b>Sage and leaf tones</b><span>Bring in the rainforest identity in a controlled way.</span></div>
+                  <div class="bullet">02</div>
+                  <div><b>Eucalyptus and moss tones</b><span>Bring in the botanical identity in a controlled way.</span></div>
                 </div>
                 <div class="list-item">
-                  <div class="bullet">✓</div>
+                  <div class="bullet">03</div>
                   <div><b>Stone and silver details</b><span>Support the natural product story and packaging finish.</span></div>
                 </div>
               </div>
-              <div class="chips" style="margin-top: 16px;">
+
+              <div class="chips tight">
                 <span class="chip">Natural</span>
                 <span class="chip">Trustworthy</span>
                 <span class="chip">Consistent</span>
-                <span class="chip">Commercial-ready</span>
+                <span class="chip">Portfolio-ready</span>
               </div>
             </div>
           </div>
@@ -1414,11 +1336,11 @@
         <div class="panel section-inner">
           <div class="section-head">
             <div>
-              <div class="eyebrow">Contact Us</div>
+              <div class="eyebrow">Contact</div>
               <h2>Keep the buyer path simple.</h2>
             </div>
             <p>
-              A light contact area is enough: visible info, clear form, and no heavy sales language.
+              Use this section for a calm, straightforward inquiry layout rather than a hard sell.
             </p>
           </div>
 
@@ -1428,7 +1350,7 @@
               <div class="contact-list">
                 <div class="contact-item">
                   <div class="dot">@</div>
-                  <div><b>Email</b><span>hello@beautycottage.example</span></div>
+                  <div><b>Email</b><span>hello@mirevabotanics.example</span></div>
                 </div>
                 <div class="contact-item">
                   <div class="dot">T</div>
@@ -1469,36 +1391,38 @@
             <div class="eyebrow">Final touch</div>
             <h2>One identity across every touchpoint.</h2>
             <p>
-              The brand now reads more like your references: rainforest-natural, ivory and sage,
-              visually trusted, and driven by imagery instead of long text.
+              The page is now ready for your replacement images and video, with a cleaner brand
+              name, new visual direction, and a layout built around trust and consistency.
             </p>
           </div>
           <div class="hero-actions" style="margin-top: 0;">
             <a class="btn primary" href="#home">Back to top</a>
-            <a class="btn secondary" href="#trusted">Review trust</a>
+            <a class="btn secondary" href="#trust">Review trust</a>
           </div>
         </div>
       </section>
 
-      <div class="footer">
-      <div class="logo-row" aria-hidden="true" style="margin-bottom: 8px;">
-        <svg class="leaf" viewBox="0 0 24 24">
-          <path d="M12 20c0-6 2.5-11.2 7.2-15"/>
-          <path d="M12 20c0-4.7-2.6-9.1-7.2-11.8"/>
-        </svg>
-      </div>
-      Beauty Cottage | Tropical Rainforest Regime
-      <div style="margin-top: 6px; font-size: 0.84rem; opacity: 0.82;">
-        Copyright claim: mockup purpose only. Non-commercial use.
-      </div>
-      </div>
+      <footer class="footer">
+        <div class="logo-row" aria-hidden="true">
+          <svg class="leaf" viewBox="0 0 24 24">
+            <path d="M12 20c0-6 2.5-11.2 7.2-15"/>
+            <path d="M12 20c0-4.7-2.6-9.1-7.2-11.8"/>
+          </svg>
+        </div>
+        Mireva Botanics | created by Mireva Lab
+        <div style="margin-top: 6px; font-size: 0.84rem; opacity: 0.82;">
+          Portfolio concept only. Non-commercial use.
+        </div>
+      </footer>
     </main>
   </div>
 
   <script>
     (function () {
       const slider = document.getElementById('heroSlider');
-      const slides = Array.from(slider.querySelectorAll('.slide'));
+      if (!slider) return;
+
+      const slides = Array.from(slider.querySelectorAll('.hero-slide'));
       const dotsWrap = document.getElementById('sliderDots');
       const prevButton = document.getElementById('heroPrev');
       const nextButton = document.getElementById('heroNext');
@@ -1516,21 +1440,9 @@
         video.setAttribute('disablePictureInPicture', '');
       });
 
-      document.addEventListener('contextmenu', (event) => {
-        if (event.target.closest('img, video')) {
-          event.preventDefault();
-        }
-      });
-
-      document.addEventListener('dragstart', (event) => {
-        if (event.target.closest('img, video')) {
-          event.preventDefault();
-        }
-      });
-
       slides.forEach((_, i) => {
         const button = document.createElement('button');
-        button.className = 'dot' + (i === 0 ? ' active' : '');
+        button.className = 'dot' + (i === index ? ' active' : '');
         button.type = 'button';
         button.setAttribute('aria-label', 'Go to slide ' + (i + 1));
         button.addEventListener('click', () => goTo(i, true));
@@ -1539,25 +1451,36 @@
 
       const dots = Array.from(dotsWrap.querySelectorAll('.dot'));
 
-      if (!slides[index].classList.contains('active')) {
-        slides[index].classList.add('active');
+      function stopVideo(slide) {
+        const video = slide.querySelector('video');
+        if (!video) return;
+        video.pause();
+        video.currentTime = 0;
+      }
+
+      function playActiveVideo(slide) {
+        const video = slide.querySelector('video');
+        if (!video || !slide.classList.contains('active')) return;
+        const attempt = video.play();
+        if (attempt && typeof attempt.catch === 'function') {
+          attempt.catch(() => {});
+        }
       }
 
       function goTo(next, manual) {
         const currentSlide = slides[index];
-        const currentVideo = currentSlide.querySelector('video');
-        if (currentVideo) {
-          currentVideo.pause();
-          currentVideo.currentTime = 0;
-        }
-        slides[index].classList.remove('active');
+        stopVideo(currentSlide);
+        currentSlide.classList.remove('active');
         dots[index].classList.remove('active');
+
         index = next;
         slides[index].classList.add('active');
         dots[index].classList.add('active');
+
         if (slider.matches(':hover')) {
           playActiveVideo(slides[index]);
         }
+
         if (manual) restart();
       }
 
@@ -1574,38 +1497,25 @@
         timer = setInterval(nextSlide, 4200);
       }
 
-      function playActiveVideo(slide) {
-        const video = slide.querySelector('video');
-        if (!video || !slide.classList.contains('active')) return;
-        const attempt = video.play();
-        if (attempt && typeof attempt.catch === 'function') {
-          attempt.catch(() => {});
-        }
-      }
-
-      function stopVideo(slide) {
-        const video = slide.querySelector('video');
-        if (!video) return;
-        video.pause();
-        video.currentTime = 0;
-      }
-
-      videos.forEach((video) => {
-        const slide = video.closest('.slide');
-        slide.addEventListener('mouseenter', () => playActiveVideo(slide));
-        slide.addEventListener('mouseleave', () => stopVideo(slide));
-        slide.addEventListener('focusin', () => playActiveVideo(slide));
-        slide.addEventListener('focusout', () => stopVideo(slide));
-      });
-
-      prevButton.addEventListener('click', () => prevSlide());
+      prevButton.addEventListener('click', prevSlide);
       nextButton.addEventListener('click', () => goTo((index + 1) % slides.length, true));
 
-      slider.addEventListener('mouseenter', () => clearInterval(timer));
+      slider.addEventListener('mouseenter', () => {
+        clearInterval(timer);
+        playActiveVideo(slides[index]);
+      });
+
       slider.addEventListener('mouseleave', () => {
         slides.forEach(stopVideo);
         restart();
       });
+
+      videos.forEach((video) => {
+        const slide = video.closest('.hero-slide');
+        slide.addEventListener('mouseenter', () => playActiveVideo(slide));
+        slide.addEventListener('mouseleave', () => stopVideo(slide));
+      });
+
       restart();
     })();
   </script>
