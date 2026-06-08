@@ -443,6 +443,81 @@
       padding: 18px 0 0;
     }
 
+    .presentation {
+      padding-top: 14px;
+    }
+
+    .presentation-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .presentation-card {
+      border-radius: 28px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.76);
+      border: 1px solid rgba(35, 49, 40, 0.1);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      min-height: 520px;
+    }
+
+    .presentation-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(135deg, rgba(142, 165, 138, 0.06), transparent 32%);
+      z-index: 1;
+    }
+
+    .presentation-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 360ms ease, filter 360ms ease;
+    }
+
+    .presentation-card:hover img {
+      transform: scale(1.03);
+      filter: saturate(1.02) contrast(1.01);
+    }
+
+    .presentation-caption {
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      bottom: 18px;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(247, 242, 233, 0.92);
+      border: 1px solid rgba(35, 49, 40, 0.12);
+      box-shadow: 0 10px 24px rgba(35, 49, 40, 0.08);
+    }
+
+    .presentation-caption b {
+      display: block;
+      font-size: 0.96rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .presentation-caption span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.82rem;
+      margin-top: 2px;
+    }
+
     .section-inner {
       padding: 30px;
     }
@@ -1009,7 +1084,8 @@
       .hero-points,
       .grid-2,
       .grid-3,
-      .service-grid {
+      .service-grid,
+      .presentation-grid {
         grid-template-columns: 1fr;
       }
       .thumbs {
@@ -1017,6 +1093,7 @@
       }
       .gallery-main,
       .thumb,
+      .presentation-card,
       .proof-visual,
       .about-visual {
         min-height: 280px;
@@ -1113,6 +1190,40 @@
               <div class="slider-ui">
                 <div class="dots" id="sliderDots" aria-label="Hero slide navigation"></div>
                 <div class="slider-note">Auto sliding hero &bull; smooth fade</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section presentation" id="presentation">
+        <div class="panel section-inner">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow">Client Presentation</div>
+              <h2>Overview board.</h2>
+            </div>
+            <p>Two reference images presented as a clean, client-ready visual follow-up to the hero.</p>
+          </div>
+
+          <div class="presentation-grid">
+            <div class="presentation-card">
+              <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/%60%60aCreate_a_professional_brand_visual_202606090036.jpeg?raw=true" alt="Mireva Botanics client presentation board 1" />
+              <div class="presentation-caption">
+                <div>
+                  <b>Brand overview</b>
+                  <span>Client-ready presentation board</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="presentation-card">
+              <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/%60%60bCreate_a_professional_brand_visual_202606090032.jpeg?raw=true" alt="Mireva Botanics client presentation board 2" />
+              <div class="presentation-caption">
+                <div>
+                  <b>Campaign system</b>
+                  <span>Overview and brand touchpoints</span>
+                </div>
               </div>
             </div>
           </div>
