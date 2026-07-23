@@ -3,284 +3,313 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta
-    name="description"
-    content="Mireva Botanics is a clean botanical beauty portfolio page focused on product presentation, packaging, trust signals, and launch-ready brand storytelling."
-  />
+  <meta name="description" content="Mireva Botanics — Premium botanical facial skincare. Nature distilled into pure, conscious beauty." />
   <link rel="icon" href="https://raw.githubusercontent.com/pacguy-mtk/rainforest-brand-mockup/1e3a8f5d78c8cd3f2e33be411a9765d1e8126980/favicon.svg" type="image/svg+xml" />
-  <title>Mireva Botanics | created by Mireva Lab</title>
+  <title>Mireva Botanics — Nature Distilled</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #f7f2e9;
-      --bg-alt: #efe6d7;
-      --surface: rgba(255, 251, 245, 0.88);
-      --surface-strong: #fffaf4;
-      --text: #233128;
-      --muted: #5f6d62;
-      --leaf: #5b735e;
-      --sage: #8ea58a;
-      --moss: #6b8269;
-      --stone: #cdbda4;
-      --line: rgba(35, 49, 40, 0.1);
-      --shadow: 0 26px 72px rgba(35, 49, 40, 0.14);
-      --shadow-soft: 0 12px 30px rgba(35, 49, 40, 0.08);
-      --radius-xl: 34px;
-      --radius-lg: 24px;
-      --radius-md: 16px;
-      --max: 1240px;
+      --bg: #f6f1ea;
+      --bg2: #efe8dd;
+      --surface: rgba(255,252,247,0.88);
+      --surface-strong: #fffdf9;
+      --text: #2a3028;
+      --muted: #6b7a66;
+      --leaf: #4a7a48;
+      --sage: #7aa376;
+      --moss: #3d6639;
+      --stone: #c4b49a;
+      --cream: #1a1e18;
+      --line: rgba(74,122,72,0.12);
+      --line-strong: rgba(74,122,72,0.22);
+      --glow: rgba(74,122,72,0.06);
+      --shadow: 0 30px 80px rgba(42,48,40,0.1);
+      --shadow-card: 0 8px 30px rgba(42,48,40,0.06);
+      --radius-xl: 32px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --max: 1320px;
     }
 
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
+
     body {
-      margin: 0;
       color: var(--text);
-      font-family: "Aptos", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-      line-height: 1.55;
+      font-family: 'Inter', system-ui, sans-serif;
+      line-height: 1.6;
       background:
-        radial-gradient(circle at 12% 10%, rgba(142, 165, 138, 0.18), transparent 26%),
-        radial-gradient(circle at 88% 6%, rgba(205, 189, 164, 0.34), transparent 24%),
-        linear-gradient(180deg, #fbf8f2 0%, var(--bg) 48%, #f7f1e6 100%);
+        radial-gradient(circle at 12% 10%, rgba(122,163,118,0.1), transparent 26%),
+        radial-gradient(circle at 88% 6%, rgba(196,180,154,0.18), transparent 24%),
+        var(--bg);
+      overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
+    }
+
+    /* Grain overlay */
+    .grain {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 200px 200px;
+      mix-blend-mode: multiply;
+    }
+
+    /* Grid background */
+    .grid-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image:
+        linear-gradient(rgba(74,122,72,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(74,122,72,0.035) 1px, transparent 1px);
+      background-size: 32px 32px;
     }
 
     a { color: inherit; text-decoration: none; }
     img, video { display: block; max-width: 100%; }
 
-    .page {
-      position: relative;
-      overflow: clip;
-    }
-
-    .noise {
-      pointer-events: none;
-      position: fixed;
-      inset: 0;
-      opacity: 0.03;
-      background-image:
-        linear-gradient(rgba(0,0,0,0.12) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,0,0,0.12) 1px, transparent 1px);
-      background-size: 22px 22px;
-      mix-blend-mode: multiply;
-      z-index: 0;
-    }
-
     .wrap {
-      width: min(var(--max), calc(100% - 32px));
+      width: min(var(--max), calc(100% - 40px));
       margin: 0 auto;
       position: relative;
-      z-index: 1;
+      z-index: 2;
     }
 
+    /* ══════ TOPBAR ══════ */
     .topbar {
-      position: sticky;
+      position: fixed;
       top: 0;
-      z-index: 30;
-      backdrop-filter: blur(16px);
-      background: linear-gradient(180deg, rgba(251, 248, 242, 0.96), rgba(251, 248, 242, 0.64));
-      border-bottom: 1px solid rgba(35, 49, 40, 0.08);
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 0 40px;
+      backdrop-filter: blur(20px);
+      background: rgba(246,241,234,0.78);
+      border-bottom: 1px solid var(--line);
     }
 
     .topbar-inner {
+      max-width: var(--max);
+      margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 18px;
-      padding: 15px 0;
+      gap: 20px;
+      padding: 14px 0;
     }
 
     .brand {
       display: inline-flex;
       align-items: center;
       gap: 12px;
-      min-width: 0;
     }
 
     .mark {
-      width: 48px;
-      height: 48px;
-      border-radius: 16px;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
       display: grid;
       place-items: center;
-      border: 1px solid rgba(91, 115, 94, 0.16);
-      background:
-        linear-gradient(145deg, rgba(142, 165, 138, 0.18), rgba(255,255,255,0.92));
-      box-shadow: var(--shadow-soft);
+      background: var(--surface-strong);
       color: var(--leaf);
-      font-family: Georgia, "Times New Roman", serif;
+      font-family: 'DM Serif Display', serif;
+      font-size: 0.9rem;
+      box-shadow: var(--shadow-card);
+    }
+
+    .brand-text strong {
+      display: block;
+      font-family: 'DM Serif Display', serif;
       font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      flex: 0 0 auto;
-    }
-
-    .brand strong {
-      display: block;
-      font-size: 1.05rem;
-      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 400;
       letter-spacing: 0.02em;
+      color: var(--text);
     }
 
-    .brand span {
+    .brand-text span {
       display: block;
+      font-size: 0.7rem;
       color: var(--muted);
-      font-size: 0.84rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 500;
     }
 
     .nav {
       display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      color: var(--muted);
-      font-size: 0.94rem;
+      gap: 6px;
     }
 
     .nav a {
-      position: relative;
-      padding-bottom: 3px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--muted);
+      border: 1px solid transparent;
+      transition: all 200ms ease;
     }
 
-    .nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      height: 1px;
-      background: currentColor;
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 180ms ease;
+    .nav a:hover {
+      color: var(--leaf);
+      border-color: var(--line);
+      background: var(--glow);
     }
 
-    .nav a:hover::after { transform: scaleX(1); }
-
+    /* ══════ HERO ══════ */
     .hero {
-      padding: 24px 0 22px;
-    }
-
-    .hero-grid {
+      min-height: 100vh;
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 0;
-      align-items: stretch;
-    }
-
-    .panel {
-      border-radius: var(--radius-xl);
-      border: 1px solid rgba(35, 49, 40, 0.1);
-      background:
-        radial-gradient(circle at top right, rgba(142, 165, 138, 0.13), transparent 30%),
-        linear-gradient(180deg, rgba(255,255,255,0.84), rgba(255,255,255,0.66));
-      box-shadow: var(--shadow);
-      overflow: hidden;
+      align-items: center;
+      padding: 100px 0 60px;
       position: relative;
     }
 
-    .panel::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background: radial-gradient(circle at bottom left, rgba(205, 189, 164, 0.16), transparent 28%);
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 48px;
+      align-items: center;
     }
+
+    .hero-copy { position: relative; }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      width: fit-content;
-      padding: 8px 12px;
+      padding: 7px 14px;
       border-radius: 999px;
-      background: rgba(142, 165, 138, 0.12);
-      color: var(--leaf);
-      font-size: 0.79rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
+      color: var(--leaf);
+      margin-bottom: 24px;
     }
 
-    h1, h2, h3 {
-      margin: 0;
-      line-height: 1.03;
-      font-family: Georgia, "Times New Roman", serif;
-      font-weight: 600;
-      letter-spacing: -0.03em;
+    .eyebrow::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--leaf);
     }
 
     h1 {
-      margin-top: 16px;
-      font-size: clamp(2.7rem, 5vw, 5.4rem);
-      max-width: 11ch;
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+      font-size: clamp(3.2rem, 6.5vw, 7rem);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      color: var(--cream);
+      margin-bottom: 28px;
     }
 
-    .lead {
-      margin: 18px 0 0;
-      max-width: 56ch;
-      font-size: clamp(1rem, 1.2vw, 1.12rem);
+    h1 em {
+      font-style: italic;
+      color: var(--leaf);
+    }
+
+    .hero-desc {
+      font-size: 0.95rem;
       color: var(--muted);
+      max-width: 42ch;
+      margin-bottom: 36px;
+      line-height: 1.7;
     }
 
-    .chips {
+    .hero-actions {
       display: flex;
+      gap: 14px;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 20px;
     }
 
-    .chip {
-      padding: 8px 12px;
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.74);
-      border: 1px solid rgba(35, 49, 40, 0.08);
-      color: var(--muted);
-      font-size: 0.86rem;
-      white-space: nowrap;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      border: 1px solid var(--line);
+      cursor: pointer;
+      transition: all 240ms cubic-bezier(0.22, 1, 0.36, 1);
     }
 
-    .hero-points {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 28px;
+    .btn-primary {
+      background: linear-gradient(135deg, var(--moss), var(--leaf));
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 16px 40px rgba(61,102,57,0.2);
     }
 
-    .point {
-      padding: 14px;
-      border-radius: 16px;
-      border: 1px solid rgba(35, 49, 40, 0.09);
-      background: rgba(255, 250, 244, 0.74);
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 22px 50px rgba(61,102,57,0.3);
     }
 
-    .point strong {
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+    }
+
+    .btn-ghost:hover {
+      background: var(--glow);
+      border-color: var(--line-strong);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 36px;
+      margin-top: 48px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
+    }
+
+    .stat strong {
       display: block;
-      margin-bottom: 4px;
-      font-size: 0.92rem;
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      color: var(--cream);
+      font-weight: 400;
     }
 
-    .point span {
-      display: block;
+    .stat span {
+      font-size: 0.72rem;
       color: var(--muted);
-      font-size: 0.86rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
     }
 
-    .hero-stage {
+    /* Hero Slider */
+    .hero-visual {
       position: relative;
-      min-height: 100%;
-      padding: 0;
     }
 
     .hero-slider {
-      position: relative;
-      height: 100%;
-      min-height: clamp(840px, 92vh, 1120px);
-      border-radius: 40px;
+      border-radius: var(--radius-xl);
       overflow: hidden;
-      background: #efe8dc;
-      border: 1px solid rgba(35, 49, 40, 0.1);
-      box-shadow: 0 38px 110px rgba(35, 49, 40, 0.28);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      aspect-ratio: 3/4;
+      position: relative;
+      background: var(--bg2);
     }
 
     .hero-slide {
@@ -288,7 +317,7 @@
       inset: 0;
       opacity: 0;
       transform: scale(1.03);
-      transition: opacity 900ms ease, transform 900ms ease;
+      transition: opacity 800ms ease, transform 800ms ease;
       pointer-events: none;
     }
 
@@ -303,1317 +332,1195 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
-      border: 0;
     }
 
     .hero-slide::after {
       content: "";
       position: absolute;
       inset: 0;
-      background:
-        linear-gradient(180deg, rgba(8, 12, 9, 0.12), rgba(8, 12, 9, 0.22) 52%, rgba(8, 12, 9, 0.62));
+      background: linear-gradient(180deg, transparent 50%, rgba(26,30,24,0.35));
+      pointer-events: none;
     }
 
-    .hero-caption {
+    .hero-badge {
       position: absolute;
-      left: 34px;
-      right: 34px;
-      bottom: 34px;
+      bottom: 24px;
+      left: 24px;
+      right: 24px;
       z-index: 2;
-      color: #f8f5ef;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.22);
-    }
-
-    .hero-caption b {
-      display: block;
-      margin-bottom: 8px;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      font-size: 1.34rem;
-    }
-
-    .hero-caption span {
-      display: block;
-      font-size: 1.05rem;
-      opacity: 0.95;
-      max-width: 46ch;
-    }
-
-    .hero-slider .slide-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 12px;
-      padding: 8px 11px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.16);
-      border: 1px solid rgba(255,255,255,0.26);
-      backdrop-filter: blur(10px);
-      font-size: 0.78rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .slider-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 4;
-      width: 52px;
-      height: 52px;
-      border: 1px solid rgba(255,255,255,0.22);
-      border-radius: 50%;
-      background: rgba(255,255,255,0.18);
+      padding: 16px 20px;
+      border-radius: var(--radius-md);
+      background: rgba(255,252,247,0.88);
       backdrop-filter: blur(12px);
-      color: #f8f4ec;
-      display: grid;
-      place-items: center;
-      cursor: pointer;
-      box-shadow: 0 14px 26px rgba(0,0,0,0.12);
-      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+      border: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
-    .slider-arrow:hover {
-      background: rgba(255,255,255,0.26);
-      border-color: rgba(255,255,255,0.3);
-      transform: translateY(-50%) scale(1.04);
+    .hero-badge b {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--cream);
     }
 
-    .slider-arrow:active {
-      transform: translateY(-50%) scale(0.98);
-    }
-
-    .slider-arrow.prev { left: 16px; }
-    .slider-arrow.next { right: 16px; }
-
-    .slider-arrow span {
-      font-size: 1.9rem;
-      line-height: 1;
-      font-family: Georgia, "Times New Roman", serif;
-      margin-top: -2px;
-      user-select: none;
+    .hero-badge span {
+      font-size: 0.72rem;
+      color: var(--muted);
+      font-weight: 500;
     }
 
     .slider-ui {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
       position: absolute;
-      left: 36px;
-      right: 36px;
-      bottom: 28px;
+      bottom: 80px;
+      left: 24px;
       z-index: 3;
-      pointer-events: none;
-    }
-
-    .dots {
       display: flex;
       align-items: center;
       gap: 8px;
-      pointer-events: auto;
     }
 
     .dot {
-      width: 9px;
-      height: 9px;
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
       border: none;
-      background: rgba(90, 115, 95, 0.22);
+      background: rgba(74,122,72,0.25);
       cursor: pointer;
       padding: 0;
-      transition: transform 160ms ease, background 160ms ease, width 160ms ease;
+      transition: all 200ms ease;
     }
 
     .dot.active {
-      width: 28px;
+      width: 24px;
       border-radius: 999px;
-      background: linear-gradient(135deg, #5b735e, #839983);
+      background: var(--leaf);
     }
 
-    .slider-note {
-      color: rgba(255,255,255,0.86);
-      font-size: 0.88rem;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.18);
-      pointer-events: auto;
-    }
+    /* ══════ SECTION HEADERS ══════ */
+    section { padding: 100px 0; }
 
-    .section {
-      padding: 18px 0 0;
-    }
-
-    .presentation {
-      padding-top: 14px;
-    }
-
-    .presentation-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-      align-items: stretch;
-    }
-
-    .presentation-card {
-      border-radius: 28px;
-      overflow: hidden;
-      background: rgba(255,255,255,0.76);
-      border: 1px solid rgba(35, 49, 40, 0.1);
-      box-shadow: var(--shadow-soft);
-      position: relative;
-      min-height: 520px;
-    }
-
-    .presentation-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background: linear-gradient(135deg, rgba(142, 165, 138, 0.06), transparent 32%);
-      z-index: 1;
-    }
-
-    .presentation-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 360ms ease, filter 360ms ease;
-    }
-
-    .presentation-card:hover img {
-      transform: scale(1.03);
-      filter: saturate(1.02) contrast(1.01);
-    }
-
-    .presentation-caption {
-      position: absolute;
-      left: 20px;
-      right: 20px;
-      bottom: 18px;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 12px 14px;
-      border-radius: 16px;
-      background: rgba(247, 242, 233, 0.92);
-      border: 1px solid rgba(35, 49, 40, 0.12);
-      box-shadow: 0 10px 24px rgba(35, 49, 40, 0.08);
-    }
-
-    .presentation-caption b {
-      display: block;
-      font-size: 0.96rem;
-      letter-spacing: 0.05em;
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--text);
+      color: var(--leaf);
+      margin-bottom: 14px;
     }
 
-    .presentation-caption span {
-      display: block;
-      color: var(--muted);
-      font-size: 0.82rem;
-      margin-top: 2px;
-    }
-
-    .section-inner {
-      padding: 30px;
-    }
-
-    .section-head {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 24px;
-      align-items: end;
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--cream);
       margin-bottom: 18px;
     }
 
-    .section-head h2 {
-      font-size: clamp(1.9rem, 3vw, 3rem);
-      max-width: 14ch;
-    }
+    h2 em { font-style: italic; color: var(--leaf); }
 
-    .section-head p {
-      margin: 0;
-      max-width: 58ch;
+    .section-desc {
+      font-size: 0.92rem;
       color: var(--muted);
+      max-width: 52ch;
+      margin-bottom: 48px;
     }
 
-    .grid-2 {
+    /* ══════ PRODUCT GALLERY ══════ */
+    .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .card {
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(35, 49, 40, 0.09);
-      background: rgba(255,255,255,0.74);
-      box-shadow: var(--shadow-soft);
-      padding: 22px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background: linear-gradient(135deg, rgba(142, 165, 138, 0.06), transparent 34%);
-    }
-
-    .card h3 {
-      font-size: 1.24rem;
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap: 18px;
-      align-items: stretch;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 16px;
     }
 
     .gallery-main {
-      border-radius: 28px;
+      border-radius: var(--radius-xl);
       overflow: hidden;
-      min-height: 430px;
-      background: #efe8dc;
-      border: 1px solid rgba(35, 49, 40, 0.1);
-      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--line);
       position: relative;
+      min-height: 520px;
+      box-shadow: var(--shadow-card);
     }
 
     .gallery-main img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 360ms ease, filter 360ms ease;
+      transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
     }
 
-    .gallery-main:hover img {
-      transform: scale(1.04);
-      filter: saturate(1.03) contrast(1.01);
-    }
+    .gallery-main:hover img { transform: scale(1.04); }
 
     .gallery-main .overlay {
       position: absolute;
-      left: 20px;
-      right: 20px;
-      bottom: 20px;
-      z-index: 2;
-      max-width: 46ch;
-      color: #f8f5ef;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.22);
-    }
-
-    .thumbs {
-      display: grid;
-      grid-template-rows: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .thumb {
-      border-radius: 24px;
-      overflow: hidden;
-      min-height: 206px;
-      border: 1px solid rgba(35, 49, 40, 0.1);
-      background: #efe8dc;
-      box-shadow: var(--shadow-soft);
-      position: relative;
-    }
-
-    .thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 360ms ease, filter 360ms ease;
-    }
-
-    .thumb:hover img {
-      transform: scale(1.06);
-      filter: saturate(1.03) contrast(1.01);
-    }
-
-    .thumb .caption {
-      position: absolute;
-      left: 16px;
-      right: 16px;
-      bottom: 14px;
-      color: #f7f3ec;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.22);
-      font-size: 0.9rem;
+      bottom: 24px;
+      left: 24px;
       z-index: 2;
     }
 
-    .service-grid {
+    .gallery-main .overlay strong {
+      display: block;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 4px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .gallery-main .overlay span {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.8);
+      text-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    }
+
+    .gallery-side {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: 1fr 1fr;
       gap: 16px;
     }
 
-    .service {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      min-height: 100%;
+    .gallery-thumb {
+      border-radius: var(--radius-lg);
       overflow: hidden;
+      border: 1px solid var(--line);
+      position: relative;
+      min-height: 250px;
+      box-shadow: var(--shadow-card);
     }
 
-    .service.is-tinted {
-      background:
-        radial-gradient(circle at top right, rgba(142, 165, 138, 0.18), transparent 34%),
-        linear-gradient(180deg, rgba(248, 244, 235, 0.98), rgba(232, 240, 225, 0.94));
-      border-color: rgba(91, 115, 94, 0.14);
-    }
-
-    .service .icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      margin-bottom: 14px;
-      color: var(--leaf);
-      background: rgba(142, 165, 138, 0.14);
-      border: 1px solid rgba(91, 115, 94, 0.12);
-      font-weight: 900;
-      font-size: 0.84rem;
-    }
-
-    .service-media {
-      border-radius: 18px;
-      overflow: hidden;
-      aspect-ratio: 4 / 3;
-      border: 1px solid rgba(35, 49, 40, 0.08);
-      background: #efe8dc;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.35);
-    }
-
-    .service-media.is-fit {
-      padding: 12px;
-      background:
-        radial-gradient(circle at top right, rgba(142, 165, 138, 0.18), transparent 36%),
-        linear-gradient(180deg, rgba(248, 244, 235, 0.92), rgba(240, 235, 225, 0.94));
-    }
-
-    .service-media img {
+    .gallery-thumb img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
-      transition: transform 360ms ease, filter 360ms ease;
+      transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
     }
 
-    .service-media.is-fit img {
-      object-fit: contain;
-      object-position: center;
+    .gallery-thumb:hover img { transform: scale(1.05); }
+
+    .gallery-thumb .caption {
+      position: absolute;
+      bottom: 14px;
+      left: 16px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: #fff;
+      z-index: 2;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.25);
     }
 
-    .service:hover .service-media img {
-      transform: scale(1.06);
-      filter: saturate(1.03) contrast(1.01);
-    }
-
-    .service:hover .service-media.is-fit img {
-      transform: scale(1.03);
-    }
-
-    .service h3 { margin-bottom: 0; }
-    .service p { margin-top: auto; }
-
-    .proof-grid {
+    /* ══════ CAPABILITIES (HOVER EXPAND) ══════ */
+    .cap-grid {
       display: grid;
-      grid-template-columns: minmax(0, 0.74fr) minmax(0, 1.26fr);
-      gap: 18px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .cap-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: var(--surface);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition:
+        box-shadow 400ms cubic-bezier(0.22, 1, 0.36, 1),
+        border-color 400ms ease;
+    }
+
+    .cap-card:hover {
+      box-shadow: 0 12px 40px rgba(42,48,40,0.12);
+      border-color: var(--line-strong);
+      z-index: 10;
+    }
+
+    .cap-media {
+      overflow: hidden;
+      max-height: 220px;
+      transition: max-height 520ms cubic-bezier(0.22, 1, 0.36, 1) 80ms;
+    }
+
+    .cap-card:hover .cap-media {
+      max-height: 500px;
+    }
+
+    .cap-media img {
+      width: 100%;
+      min-height: 220px;
+      object-fit: cover;
+      transition: min-height 520ms cubic-bezier(0.22, 1, 0.36, 1) 80ms, transform 400ms ease;
+    }
+
+    .cap-card:hover .cap-media img {
+      min-height: 320px;
+      transform: scale(1.04);
+    }
+
+    .cap-body {
+      padding: 22px;
+    }
+
+    .cap-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      color: var(--leaf);
+      opacity: 0.3;
+      margin-bottom: 10px;
+      line-height: 1;
+    }
+
+    .cap-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+      font-size: 1.15rem;
+      color: var(--cream);
+      margin-bottom: 8px;
+    }
+
+    .cap-text {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.65;
+      max-height: 42px;
+      overflow: hidden;
+      position: relative;
+      transition: max-height 480ms cubic-bezier(0.22, 1, 0.36, 1) 40ms;
+    }
+
+    .cap-text::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 20px;
+      background: linear-gradient(transparent, var(--surface));
+      pointer-events: none;
+      transition: opacity 360ms ease 60ms;
+    }
+
+    .cap-card:hover .cap-text {
+      max-height: 200px;
+    }
+
+    .cap-card:hover .cap-text::after {
+      opacity: 0;
+    }
+
+    .cap-hint {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--leaf);
+      opacity: 0.5;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: opacity 280ms ease, font-size 360ms ease;
+    }
+
+    .cap-card:hover .cap-hint {
+      opacity: 0;
+      font-size: 0;
+    }
+
+    /* ══════ TRUST ══════ */
+    .trust-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
       align-items: stretch;
     }
 
-    .proof-list {
+    .trust-visual {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      position: relative;
+      min-height: 480px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .trust-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 500ms ease;
+    }
+
+    .trust-visual:hover img { transform: scale(1.04); }
+
+    .trust-visual .overlay {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      right: 24px;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: #fff;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    .trust-list {
       display: grid;
       gap: 12px;
-      margin-top: 14px;
     }
 
-    .proof-item {
+    .trust-item {
       display: flex;
-      gap: 12px;
+      gap: 14px;
       align-items: start;
-      padding: 14px;
-      border-radius: 16px;
-      border: 1px solid rgba(35, 49, 40, 0.08);
-      background: rgba(255,255,255,0.66);
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--surface);
+      transition: border-color 200ms ease, box-shadow 200ms ease;
     }
 
-    .proof-item .dotmark {
-      width: 26px;
-      height: 26px;
+    .trust-item:hover {
+      border-color: var(--line-strong);
+      box-shadow: var(--shadow-card);
+    }
+
+    .trust-item .num {
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
-      flex: 0 0 auto;
-      background: rgba(142, 165, 138, 0.14);
-      color: var(--leaf);
+      border: 1px solid var(--line);
       display: grid;
       place-items: center;
-      font-weight: 900;
+      font-family: 'DM Serif Display', serif;
       font-size: 0.82rem;
+      color: var(--leaf);
+      flex-shrink: 0;
     }
 
-    .proof-item b {
+    .trust-item b {
       display: block;
-      margin-bottom: 2px;
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+      font-size: 1rem;
+      color: var(--cream);
+      margin-bottom: 4px;
     }
 
-    .proof-item span {
+    .trust-item span {
+      font-size: 0.82rem;
       color: var(--muted);
-      font-size: 0.92rem;
-      display: block;
+      line-height: 1.6;
     }
 
-    .proof-visual,
+    /* ══════ ABOUT ══════ */
+    .about-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+
     .about-visual {
-      border-radius: 28px;
+      border-radius: var(--radius-xl);
       overflow: hidden;
-      min-height: 420px;
-      border: 1px solid rgba(35, 49, 40, 0.1);
-      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--line);
+      min-height: 480px;
       position: relative;
-      background: #efe8dc;
+      box-shadow: var(--shadow-card);
     }
 
-    .proof-visual img,
     .about-visual img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 360ms ease, filter 360ms ease;
+      transition: transform 500ms ease;
     }
 
-    .proof-visual:hover img,
-    .about-visual:hover img {
-      transform: scale(1.04);
-      filter: saturate(1.03) contrast(1.01);
-    }
+    .about-visual:hover img { transform: scale(1.04); }
 
-    .proof-visual .overlay,
     .about-visual .overlay {
       position: absolute;
-      left: 20px;
-      right: 20px;
-      bottom: 18px;
-      color: #f8f5ef;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.22);
-      z-index: 2;
-      max-width: 30ch;
-      font-size: 0.92rem;
-      line-height: 1.35;
+      bottom: 24px;
+      left: 24px;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #fff;
+      max-width: 32ch;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.2);
     }
 
-    .about-grid {
+    .about-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background: var(--surface);
+      padding: 36px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .about-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+      font-size: 1.8rem;
+      color: var(--cream);
+      margin-bottom: 16px;
+    }
+
+    .about-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .about-list {
       display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 18px;
-      align-items: stretch;
+      gap: 10px;
     }
 
-    .list {
-      display: grid;
-      gap: 12px;
-      margin-top: 14px;
-    }
-
-    .list-item {
-      display: flex;
-      gap: 12px;
-      align-items: start;
-      padding: 13px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(35, 49, 40, 0.08);
-      background: rgba(255,255,255,0.64);
-    }
-
-    .bullet {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      flex: 0 0 auto;
-      background: rgba(142, 165, 138, 0.14);
-      color: var(--leaf);
-      font-size: 0.78rem;
-      font-weight: 900;
-    }
-
-    .list-item b { display: block; margin-bottom: 2px; }
-    .list-item span { display: block; color: var(--muted); font-size: 0.92rem; }
-
-    .chips.tight { margin-top: 16px; }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 18px;
-      align-items: start;
-    }
-
-    .contact-list {
-      display: grid;
-      gap: 12px;
-      margin-top: 16px;
-    }
-
-    .contact-item {
+    .about-item {
       display: flex;
       gap: 12px;
       align-items: start;
       padding: 14px;
-      border-radius: 16px;
-      border: 1px solid rgba(35, 49, 40, 0.08);
-      background: rgba(255,255,255,0.66);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: rgba(74,122,72,0.03);
     }
 
-    .contact-item .dot {
-      width: 26px;
-      height: 26px;
+    .about-item .num {
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
-      flex: 0 0 auto;
-      background: rgba(142, 165, 138, 0.14);
-      color: var(--leaf);
+      border: 1px solid var(--line);
       display: grid;
       place-items: center;
-      font-weight: 900;
-      font-size: 0.82rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--leaf);
+      flex-shrink: 0;
     }
 
-    .contact-item b {
+    .about-item b {
       display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--cream);
       margin-bottom: 2px;
     }
 
-    .contact-item span {
-      display: block;
+    .about-item span {
+      font-size: 0.8rem;
       color: var(--muted);
-      font-size: 0.92rem;
     }
 
-    .form {
-      display: grid;
-      gap: 14px;
-      margin-top: 16px;
-    }
-
-    .field {
-      display: grid;
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
       gap: 8px;
+      margin-top: 28px;
     }
+
+    .tag {
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    /* ══════ CONTACT ══════ */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .contact-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background: var(--surface);
+      padding: 36px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .contact-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+      font-size: 1.6rem;
+      color: var(--cream);
+      margin-bottom: 20px;
+    }
+
+    .contact-items {
+      display: grid;
+      gap: 10px;
+    }
+
+    .contact-row {
+      display: flex;
+      gap: 12px;
+      align-items: start;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: rgba(74,122,72,0.03);
+    }
+
+    .contact-row .icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      display: grid;
+      place-items: center;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--leaf);
+      flex-shrink: 0;
+    }
+
+    .contact-row b {
+      display: block;
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 2px;
+    }
+
+    .contact-row span {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .form { display: grid; gap: 14px; }
 
     .field label {
-      font-size: 0.86rem;
+      display: block;
+      font-size: 0.74rem;
+      font-weight: 500;
       color: var(--muted);
-      letter-spacing: 0.02em;
+      margin-bottom: 6px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
 
     .field input,
     .field textarea {
       width: 100%;
-      border: 1px solid rgba(35, 49, 40, 0.12);
-      border-radius: 14px;
-      background: rgba(255,255,255,0.9);
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: rgba(246,241,234,0.6);
       color: var(--text);
-      padding: 14px 15px;
-      font: inherit;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
       outline: none;
-      transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+      transition: border-color 200ms ease, box-shadow 200ms ease;
     }
 
-    .field textarea { min-height: 128px; resize: vertical; }
+    .field textarea { min-height: 120px; resize: vertical; }
 
     .field input:focus,
     .field textarea:focus {
-      border-color: rgba(91, 115, 94, 0.34);
-      box-shadow: 0 0 0 4px rgba(142, 165, 138, 0.12);
+      border-color: var(--leaf);
+      box-shadow: 0 0 0 3px rgba(74,122,72,0.08);
     }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 13px 18px;
-      border-radius: 999px;
-      font-weight: 700;
-      border: 1px solid rgba(35, 49, 40, 0.14);
-      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease, box-shadow 160ms ease;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-
-    .btn:hover { transform: translateY(-1px); }
-
-    .btn.primary {
-      background: linear-gradient(135deg, #5b735e, #839983);
-      color: #fff;
-      box-shadow: 0 16px 34px rgba(91, 115, 94, 0.18);
-    }
-
-    .btn.secondary {
-      background: rgba(255,255,255,0.76);
-      color: var(--text);
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 24px;
-    }
-
-    .cta {
-      padding: 18px 0 0;
-    }
+    /* ══════ CTA ══════ */
+    .cta-section { padding: 80px 0; }
 
     .cta-box {
-      border-radius: 30px;
-      border: 1px solid rgba(35, 49, 40, 0.1);
-      background:
-        radial-gradient(circle at top right, rgba(142, 165, 138, 0.12), transparent 36%),
-        linear-gradient(180deg, rgba(255,255,255,0.84), rgba(255,255,255,0.66));
-      box-shadow: var(--shadow);
-      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background: var(--surface);
+      padding: 56px;
       display: flex;
-      align-items: end;
+      align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 32px;
+      box-shadow: var(--shadow);
     }
 
-    .cta-box h2 {
-      font-size: clamp(2rem, 3vw, 3.1rem);
-      max-width: 14ch;
-    }
+    .cta-box h2 { margin-bottom: 12px; }
+    .cta-box p { color: var(--muted); font-size: 0.92rem; max-width: 48ch; }
 
-    .cta-box p {
-      max-width: 60ch;
-      color: var(--muted);
-      margin: 16px 0 0;
-    }
-
+    /* ══════ FOOTER ══════ */
     .footer {
-      padding: 26px 0 42px;
+      padding: 40px 0 60px;
+      border-top: 1px solid var(--line);
       text-align: center;
-      color: var(--muted);
-      font-size: 0.94rem;
     }
 
-    .footer .logo-row {
+    .footer-brand {
       display: inline-flex;
       align-items: center;
       gap: 10px;
       margin-bottom: 10px;
     }
 
-    .leaf {
-      width: 22px;
-      height: 22px;
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 1.7;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+    .footer-brand strong {
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+      font-size: 1rem;
+      color: var(--cream);
     }
 
-    .hero-copy .leaf {
-      color: var(--leaf);
-    }
-
-    .muted-small {
+    .footer p {
+      font-size: 0.8rem;
       color: var(--muted);
-      font-size: 0.9rem;
     }
 
-    .spacer {
-      height: 8px;
+    /* ══════ REVEAL ══════ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 600ms cubic-bezier(0.22, 1, 0.36, 1), transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
     }
 
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ══════ RESPONSIVE ══════ */
     @media (max-width: 1100px) {
-      .hero-grid,
-      .gallery,
-      .proof-grid,
-      .about-grid,
-      .contact-grid,
+      .hero-layout,
+      .gallery-grid,
+      .trust-layout,
+      .about-layout,
+      .contact-layout,
       .cta-box {
         grid-template-columns: 1fr;
-        display: grid;
       }
-
+      .cap-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
-    @media (max-width: 760px) {
-      .wrap { width: min(var(--max), calc(100% - 20px)); }
-      .topbar-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .nav {
-        gap: 12px;
-      }
-      .hero,
-      .section {
-        padding-top: 16px;
-      }
-      .section-inner,
-      .cta-box {
-        padding: 20px;
-      }
-      h1 {
-        max-width: 12ch;
-      }
-      .hero-points,
-      .grid-2,
-      .grid-3,
-      .service-grid,
-      .presentation-grid {
-        grid-template-columns: 1fr;
-      }
-      .thumbs {
-        grid-template-rows: auto;
-      }
-      .gallery-main,
-      .thumb,
-      .presentation-card,
-      .proof-visual,
-      .about-visual {
-        min-height: 280px;
-      }
-      .hero-slider {
-        min-height: 620px;
-      }
+    @media (max-width: 640px) {
+      .wrap { width: min(var(--max), calc(100% - 24px)); }
+      .topbar { padding: 0 16px; }
+      .topbar-inner { padding: 12px 0; }
+      .nav { gap: 4px; }
+      .nav a { padding: 6px 10px; font-size: 0.72rem; }
+      h1 { font-size: clamp(2.4rem, 10vw, 4rem); }
+      section { padding: 60px 0; }
+      .cap-grid { grid-template-columns: 1fr; }
+      .hero-stats { flex-wrap: wrap; gap: 20px; }
+      .cta-box { padding: 28px; flex-direction: column; text-align: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { transition: none !important; opacity: 1; transform: none; }
+      .hero-slide { transition: none !important; }
+      .cap-media, .cap-media img, .cap-text, .cap-text::after, .cap-hint { transition: none !important; }
+    }
+
+    /* Touch fallback for hover-expand */
+    @media (hover: none) {
+      .cap-card.expanded .cap-media { max-height: 500px; }
+      .cap-card.expanded .cap-media img { min-height: 320px; }
+      .cap-card.expanded .cap-text { max-height: 200px; }
+      .cap-card.expanded .cap-text::after { opacity: 0; }
+      .cap-card.expanded .cap-hint { opacity: 0; font-size: 0; }
     }
   </style>
 </head>
 <body>
-  <div class="page" id="home">
-    <div class="noise"></div>
+  <div class="grain"></div>
+  <div class="grid-bg"></div>
 
-    <header class="topbar">
-      <div class="wrap topbar-inner">
-        <a class="brand" href="#home" aria-label="Mireva Botanics home">
-          <div class="mark" aria-hidden="true">MB</div>
-          <div>
-            <strong>Mireva Botanics</strong>
-            <span>Natural beauty portfolio</span>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#home" aria-label="Mireva Botanics home">
+        <div class="mark" aria-hidden="true">MB</div>
+        <div class="brand-text">
+          <strong>Mireva Botanics</strong>
+          <span>Nature distilled</span>
+        </div>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#product">Product</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#trust">Trust</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ══════ HERO ══════ -->
+    <section class="hero" id="home">
+      <div class="wrap">
+        <div class="hero-layout">
+          <div class="hero-copy reveal">
+            <div class="eyebrow">Botanical Facial Care</div>
+            <h1>Nature<br/>Distilled<br/><em>Into Pure</em></h1>
+            <p class="hero-desc">
+              Premium facial skincare born from the rainforest. Each formula captures the potent essence of botanical ingredients, delivering visible results without compromise.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#product">Explore Collection</a>
+              <a class="btn btn-ghost" href="#about">Our Story</a>
+            </div>
+            <div class="hero-stats">
+              <div class="stat">
+                <strong>100%</strong>
+                <span>Natural origin</span>
+              </div>
+              <div class="stat">
+                <strong>12+</strong>
+                <span>Active botanicals</span>
+              </div>
+              <div class="stat">
+                <strong>0</strong>
+                <span>Synthetic additives</span>
+              </div>
+            </div>
           </div>
-        </a>
+          <div class="hero-visual reveal">
+            <div class="hero-slider" id="heroSlider">
+              <figure class="hero-slide active">
+                <video
+                  src="https://github.com/pacguy-mtk/rainforest-brand-mockup/raw/refs/heads/main/brand-presencea.mp4"
+                  muted
+                  playsinline
+                  preload="metadata"
+                  aria-label="Brand presence video"
+                ></video>
+              </figure>
+              <figure class="hero-slide">
+                <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/00a.jpeg?raw=true" alt="Mireva Botanics hero product" />
+              </figure>
+              <figure class="hero-slide">
+                <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/01a.jpeg?raw=true" alt="Product family showcase" />
+              </figure>
+              <figure class="hero-slide">
+                <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/03a.jpeg?raw=true" alt="Trust infographic" />
+              </figure>
 
-        <nav class="nav" aria-label="Main navigation">
-          <a href="#home">Home</a>
-          <a href="#product">Product</a>
-          <a href="#capabilities">Capabilities</a>
-          <a href="#trust">Trust</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
-        </nav>
+              <div class="slider-ui" id="sliderDots"></div>
+
+              <div class="hero-badge">
+                <b>Eucalyptus Radiance Serum</b>
+                <span>Core collection</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </header>
+    </section>
 
-    <main class="wrap">
-      <section class="hero">
-        <div class="hero-grid">
-          <div class="panel">
-            <div class="hero-stage" aria-label="Brand media preview">
-              <div class="hero-slider" id="heroSlider">
-                <button class="slider-arrow prev" type="button" id="heroPrev" aria-label="Previous slide">
-                  <span aria-hidden="true">&lsaquo;</span>
-                </button>
-                <button class="slider-arrow next" type="button" id="heroNext" aria-label="Next slide">
-                  <span aria-hidden="true">&rsaquo;</span>
-                </button>
+    <!-- ══════ PRODUCT ══════ -->
+    <section id="product">
+      <div class="wrap">
+        <div class="reveal">
+          <div class="section-label">Product System</div>
+          <h2>One brand,<br/><em>multiple touchpoints.</em></h2>
+          <p class="section-desc">
+            Bottles, jars, and boxes designed as one cohesive family. Every surface tells the same botanical story.
+          </p>
+        </div>
 
-                <figure class="hero-slide active">
-                  <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/00a.jpeg?raw=true" alt="Mireva Botanics hero product shot" />
-                  <figcaption class="hero-caption">
-                    <div class="slide-badge">Hero product</div>
-                    <b>Clean hero packshot</b>
-                    <span>The main visual anchor for the brand story.</span>
-                  </figcaption>
-                </figure>
-
-                <figure class="hero-slide">
-                  <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/01a.jpeg?raw=true" alt="Mireva Botanics product family showcase" />
-                  <figcaption class="hero-caption">
-                    <div class="slide-badge">Product family</div>
-                    <b>One-stop product system</b>
-                    <span>Bottles, jars, and boxes feel like one product family.</span>
-                  </figcaption>
-                </figure>
-
-                <figure class="hero-slide">
-                  <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/03a.jpeg?raw=true" alt="Mireva Botanics trust infographic" />
-                  <figcaption class="hero-caption">
-                    <div class="slide-badge">Trust story</div>
-                    <b>Visual trust evidence</b>
-                    <span>Use this for the supplier evidence or lab narrative.</span>
-                  </figcaption>
-                </figure>
-
-                <figure class="hero-slide">
-                  <video
-                    src="https://github.com/pacguy-mtk/rainforest-brand-mockup/raw/refs/heads/main/brand-presencea.mp4"
-                    poster="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/brand-presencea.jpg?raw=true"
-                    muted
-                    playsinline
-                    preload="metadata"
-                    loop
-                    aria-label="Brand presence video placeholder"
-                  ></video>
-                  <figcaption class="hero-caption">
-                    <div class="slide-badge">Brand motion</div>
-                    <b>Hover-play brand presence</b>
-                    <span>Use your final video or meeting scene here.</span>
-                  </figcaption>
-                </figure>
-              </div>
-
-              <div class="slider-ui">
-                <div class="dots" id="sliderDots" aria-label="Hero slide navigation"></div>
-                <div class="slider-note">Auto sliding hero &bull; smooth fade</div>
-              </div>
+        <div class="gallery-grid reveal">
+          <div class="gallery-main">
+            <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/01a.jpeg?raw=true" alt="Product family showcase" />
+            <div class="overlay">
+              <strong>Product Family</strong>
+              <span>Bottles, jars, and packaging in visual harmony</span>
+            </div>
+          </div>
+          <div class="gallery-side">
+            <div class="gallery-thumb">
+              <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/00a.jpeg?raw=true" alt="Single hero packshot" />
+              <div class="caption">Single hero packshot</div>
+            </div>
+            <div class="gallery-thumb">
+              <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/trust-communicationa.jpeg?raw=true" alt="Trust communication" />
+              <div class="caption">Trust communication</div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section presentation" id="presentation">
-        <div class="panel section-inner">
-          <div class="section-head">
-            <div>
-              <div class="eyebrow">Client Presentation</div>
+    <!-- ══════ CAPABILITIES (HOVER EXPAND) ══════ -->
+    <section id="capabilities">
+      <div class="wrap">
+        <div class="reveal">
+          <div class="section-label">Capabilities</div>
+          <h2>What the brand<br/><em>system can support.</em></h2>
+          <p class="section-desc">
+            From packaging to campaign, every touchpoint follows one visual language.
+          </p>
+        </div>
+
+        <div class="cap-grid reveal">
+          <div class="cap-card" onclick="this.classList.toggle('expanded')">
+            <div class="cap-media">
+              <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/packaging-consistencya.jpeg?raw=true" alt="Packaging consistency" />
             </div>
-            <p>Two reference images presented as a clean, client-ready visual follow-up to the hero.</p>
+            <div class="cap-body">
+              <div class="cap-num">01</div>
+              <h3>Packaging</h3>
+              <div class="cap-text">
+                <p>Same logo placement, same color family, and a stable label grid across every SKU. Bottles, jars, and boxes feel like one product family — not separate designs.</p>
+              </div>
+              <span class="cap-hint">Hover to read more</span>
+            </div>
           </div>
 
-          <div class="presentation-grid">
-            <div class="presentation-card">
-              <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/%60%60aCreate_a_professional_brand_visual_202606090036.jpeg?raw=true" alt="Mireva Botanics client presentation board 1" />
+          <div class="cap-card" onclick="this.classList.toggle('expanded')">
+            <div class="cap-media">
+              <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/campaign-assetsa.jpeg?raw=true" alt="Campaign assets" />
             </div>
-            <div class="presentation-card">
-              <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/%60%60bCreate_a_professional_brand_visual_202606090032.jpeg?raw=true" alt="Mireva Botanics client presentation board 2" />
+            <div class="cap-body">
+              <div class="cap-num">02</div>
+              <h3>Campaign</h3>
+              <div class="cap-text">
+                <p>Product shots, model scenes, infographics, and launch visuals that feel coherent across all channels. Every asset reinforces the same botanical identity.</p>
+              </div>
+              <span class="cap-hint">Hover to read more</span>
+            </div>
+          </div>
+
+          <div class="cap-card" onclick="this.classList.toggle('expanded')">
+            <div class="cap-media">
+              <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/launch-supporta.jpeg?raw=true" alt="Launch support" />
+            </div>
+            <div class="cap-body">
+              <div class="cap-num">03</div>
+              <h3>Launch</h3>
+              <div class="cap-text">
+                <p>Homepage, product story, and display assets ready for market presentation. From digital to physical, the brand system scales without losing consistency.</p>
+              </div>
+              <span class="cap-hint">Hover to read more</span>
+            </div>
+          </div>
+
+          <div class="cap-card" onclick="this.classList.toggle('expanded')">
+            <div class="cap-media">
+              <img src="https://raw.githubusercontent.com/pacguy-mtk/rainforest-brand-mockup/refs/heads/main/11.jpeg" alt="Trust communication" />
+            </div>
+            <div class="cap-body">
+              <div class="cap-num">04</div>
+              <h3>Trust</h3>
+              <div class="cap-text">
+                <p>Evidence-led visuals that help the buyer feel safe before choosing the supplier. Ingredient, test, and quality-control evidence displayed clearly.</p>
+              </div>
+              <span class="cap-hint">Hover to read more</span>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="product" class="section">
-        <div class="panel section-inner">
-          <div class="section-head">
-            <div>
-              <div class="eyebrow">Product system</div>
-              <h2>One brand, multiple touchpoints.</h2>
+    <!-- ══════ TRUST ══════ -->
+    <section id="trust">
+      <div class="wrap">
+        <div class="reveal">
+          <div class="section-label">Trust</div>
+          <h2>Built on<br/><em>evidence, not promises.</em></h2>
+        </div>
+
+        <div class="trust-layout reveal">
+          <div class="trust-list">
+            <div class="trust-item">
+              <div class="num">1</div>
+              <div>
+                <b>Will the product stay consistent?</b>
+                <span>Yes. The bottle, jar, box, and booth all follow the same visual rules.</span>
+              </div>
             </div>
+            <div class="trust-item">
+              <div class="num">2</div>
+              <div>
+                <b>Can I trust the proof?</b>
+                <span>Yes. Ingredient, test, and quality-control evidence displayed clearly.</span>
+              </div>
+            </div>
+            <div class="trust-item">
+              <div class="num">3</div>
+              <div>
+                <b>Can the supplier support launch?</b>
+                <span>Yes. Product, website, exhibition, and pitch visuals all match.</span>
+              </div>
+            </div>
+            <div class="trust-item">
+              <div class="num">4</div>
+              <div>
+                <b>Is delivery confidence visible?</b>
+                <span>Yes. Repeatable packaging, shipment cues, and process markers included.</span>
+              </div>
+            </div>
+          </div>
+          <div class="trust-visual">
+            <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/10.jpeg?raw=true" alt="Supplier evidence wall" />
+            <div class="overlay">Supplier evidence wall</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════ ABOUT ══════ -->
+    <section id="about">
+      <div class="wrap">
+        <div class="reveal">
+          <div class="section-label">About</div>
+          <h2>Natural, calm,<br/><em>and consistent.</em></h2>
+        </div>
+
+        <div class="about-layout reveal">
+          <div class="about-visual">
+            <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/packaging-consistencya.jpeg?raw=true" alt="Brand story visual" />
+            <div class="overlay">The deal is made by trust, not by pressure.</div>
+          </div>
+          <div class="about-card">
+            <h3>Brand Story</h3>
             <p>
-              This layout is built to support the product hero, the packaging family, and the
-              one-stop showcase without letting any one asset overwhelm the others.
+              Mireva Botanics is a premium botanical facial beauty brand built for portfolio presentation. Designed to feel grounded, luxurious, and commercially ready — every touchpoint reinforces the same natural identity.
             </p>
-          </div>
-
-          <div class="gallery">
-            <div class="gallery-main">
-              <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/01a.jpeg?raw=true" alt="Product family showcase with matching packaging" />
-              <div class="overlay">
-                <strong>Product family</strong>
-                <span>Use this slot for the main family showcase with bottles, jars, and box mockups.</span>
+            <div class="about-list">
+              <div class="about-item">
+                <div class="num">01</div>
+                <div><b>Ivory base</b><span>Soft, warm, and easy to read</span></div>
+              </div>
+              <div class="about-item">
+                <div class="num">02</div>
+                <div><b>Eucalyptus & moss</b><span>Botanical identity in controlled tones</span></div>
+              </div>
+              <div class="about-item">
+                <div class="num">03</div>
+                <div><b>Stone & silver</b><span>Supporting the natural product finish</span></div>
               </div>
             </div>
-
-            <div class="thumbs">
-              <div class="thumb">
-                <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/00a.jpeg?raw=true" alt="Single product hero shot" />
-                <div class="caption">Single hero packshot</div>
-              </div>
-              <div class="thumb">
-                <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/trust-communicationa.jpeg?raw=true" alt="Trust infographic or supplier evidence board" />
-                <div class="caption">Clear trust communication</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="grid-3" style="margin-top: 18px;">
-            <div class="card">
-              <h3>Readable labels</h3>
-              <p>Keep the front label calm, generous, and easy to understand from a distance.</p>
-            </div>
-            <div class="card">
-              <h3>Soft palette</h3>
-              <p>Ivory, eucalyptus, stone, and moss create a clean botanical feeling.</p>
-            </div>
-            <div class="card">
-              <h3>Family logic</h3>
-              <p>Every package should feel like part of the same product line, not a separate design.</p>
+            <div class="tags">
+              <span class="tag">Natural</span>
+              <span class="tag">Trustworthy</span>
+              <span class="tag">Consistent</span>
+              <span class="tag">Portfolio-ready</span>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="capabilities" class="section">
-        <div class="panel section-inner">
-          <div class="section-head">
-            <div>
-              <div class="eyebrow">Capabilities</div>
-              <h2>What the brand system can support.</h2>
+    <!-- ══════ CONTACT ══════ -->
+    <section id="contact">
+      <div class="wrap">
+        <div class="reveal">
+          <div class="section-label">Contact</div>
+          <h2>Start the<br/><em>conversation.</em></h2>
+        </div>
+
+        <div class="contact-layout reveal">
+          <div class="contact-card">
+            <h3>Get in touch</h3>
+            <div class="contact-items">
+              <div class="contact-row">
+                <div class="icon">@</div>
+                <div><b>Email</b><span>hello@mirevabotanics.example</span></div>
+              </div>
+              <div class="contact-row">
+                <div class="icon">T</div>
+                <div><b>Telephone</b><span>+60 12-345 6789</span></div>
+              </div>
+              <div class="contact-row">
+                <div class="icon">L</div>
+                <div><b>Location</b><span>Malaysia / Southeast Asia</span></div>
+              </div>
             </div>
-            <p>
-              Keep this section short and practical. It is a portfolio summary, not a sales brochure.
-            </p>
           </div>
-
-          <div class="service-grid">
-            <div class="card service is-tinted">
-              <div class="icon">01</div>
-              <div class="service-media">
-                <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/packaging-consistencya.jpeg?raw=true" alt="Packaging consistency visual" />
+          <div class="contact-card">
+            <h3>Quick inquiry</h3>
+            <div class="form">
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" type="text" placeholder="Your name" />
               </div>
-              <h3>Packaging consistency</h3>
-              <p>Same logo placement, same color family, and a stable label grid across SKUs.</p>
-            </div>
-
-            <div class="card service">
-              <div class="icon">02</div>
-              <div class="service-media">
-                <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/campaign-assetsa.jpeg?raw=true" alt="Campaign assets visual" />
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" type="email" placeholder="you@example.com" />
               </div>
-              <h3>Campaign assets</h3>
-              <p>Product shots, model scenes, infographics, and launch visuals that feel coherent.</p>
-            </div>
-
-            <div class="card service">
-              <div class="icon">03</div>
-              <div class="service-media is-fit">
-                <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/launch-supporta.jpeg?raw=true" alt="Launch support visual" />
+              <div class="field">
+                <label for="message">Message</label>
+                <textarea id="message" placeholder="Tell us what you need..."></textarea>
               </div>
-              <h3>Launch support</h3>
-              <p>Homepage, product story, and display assets that are ready for the market story.</p>
-            </div>
-
-            <div class="card service is-tinted">
-              <div class="icon">04</div>
-              <div class="service-media is-fit">
-                <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/trust-communicationa.jpeg?raw=true" alt="Trust communication visual" />
-              </div>
-              <h3>Trust communication</h3>
-              <p>Evidence-led visuals that help the buyer feel safe before choosing the supplier.</p>
+              <button class="btn btn-primary" type="button">Send Inquiry</button>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="trust" class="section">
-        <div class="panel section-inner">
-          <div class="section-head">
-            <div>
-              <div class="eyebrow">Trust</div>
-              <h2>How a client can trust the supplier.</h2>
-            </div>
-          </div>
-
-          <div class="proof-grid">
-            <div class="card">
-              <h3>Client asks, brand answers</h3>
-              <div class="proof-list">
-                <div class="proof-item">
-                  <div class="dotmark">1</div>
-                  <div>
-                    <b>Will the product stay consistent?</b>
-                    <span>Yes. The bottle, jar, box, and booth should all follow the same visual rules.</span>
-                  </div>
-                </div>
-                <div class="proof-item">
-                  <div class="dotmark">2</div>
-                  <div>
-                    <b>Can I trust the proof?</b>
-                    <span>Yes. Ingredient, test, and quality-control evidence can be shown clearly.</span>
-                  </div>
-                </div>
-                <div class="proof-item">
-                  <div class="dotmark">3</div>
-                  <div>
-                    <b>Can the supplier support launch assets?</b>
-                    <span>Yes. Product, website, exhibition, and customer-pitch visuals can all match.</span>
-                  </div>
-                </div>
-                <div class="proof-item">
-                  <div class="dotmark">4</div>
-                  <div>
-                    <b>Is delivery confidence visible?</b>
-                    <span>Yes. Add repeatable packaging, shipment cues, and process markers to the visual story.</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="proof-visual">
-              <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/10.jpeg?raw=true" alt="Lab trust or evidence wall visual for supplier confidence" />
-              <div class="overlay">
-                Supplier evidence wall
-                <div class="spacer"></div>
-                <span>Use this as the lab / quality / delivery proof image for the trust section.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="about" class="section">
-        <div class="panel section-inner">
-          <div class="section-head">
-            <div>
-              <div class="eyebrow">About</div>
-              <h2>Natural, calm, and consistent.</h2>
-            </div>
-            <p>
-              The goal is to make the brand feel composed and believable across every touchpoint.
-            </p>
-          </div>
-
-          <div class="about-grid">
-            <div class="about-visual">
-              <img src="https://github.com/pacguy-mtk/rainforest-brand-mockup/blob/main/packaging-consistencya.jpeg?raw=true" alt="Customer meeting and trust conversation visual" />
-              <div class="overlay">
-                The deal is made by trust, not by pressure.
-              </div>
-            </div>
-
-            <div class="card">
-              <h3>Brand story</h3>
-              <p>
-                Mireva Botanics is a fictional botanical beauty brand built for portfolio
-                presentation. It is designed to feel grounded, premium, and commercially usable
-                without relying on the original reference identity.
-              </p>
-
-              <div class="list">
-                <div class="list-item">
-                  <div class="bullet">01</div>
-                  <div><b>Ivory base</b><span>Soft, warm, and easy to read.</span></div>
-                </div>
-                <div class="list-item">
-                  <div class="bullet">02</div>
-                  <div><b>Eucalyptus and moss tones</b><span>Bring in the botanical identity in a controlled way.</span></div>
-                </div>
-                <div class="list-item">
-                  <div class="bullet">03</div>
-                  <div><b>Stone and silver details</b><span>Support the natural product story and packaging finish.</span></div>
-                </div>
-              </div>
-
-              <div class="chips tight">
-                <span class="chip">Natural</span>
-                <span class="chip">Trustworthy</span>
-                <span class="chip">Consistent</span>
-                <span class="chip">Portfolio-ready</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" class="section">
-        <div class="panel section-inner">
-          <div class="section-head">
-            <div>
-              <div class="eyebrow">Contact</div>
-              <h2>Keep the buyer path simple.</h2>
-            </div>
-            <p>
-              Use this section for a calm, straightforward inquiry layout rather than a hard sell.
-            </p>
-          </div>
-
-          <div class="contact-grid">
-            <div class="card">
-              <h3>Contact details</h3>
-              <div class="contact-list">
-                <div class="contact-item">
-                  <div class="dot">@</div>
-                  <div><b>Email</b><span>hello@mirevabotanics.example</span></div>
-                </div>
-                <div class="contact-item">
-                  <div class="dot">T</div>
-                  <div><b>Telephone</b><span>+60 12-345 6789</span></div>
-                </div>
-                <div class="contact-item">
-                  <div class="dot">L</div>
-                  <div><b>Location</b><span>Malaysia / Southeast Asia</span></div>
-                </div>
-              </div>
-            </div>
-
-            <div class="card">
-              <h3>Quick inquiry</h3>
-              <div class="form">
-                <div class="field">
-                  <label for="name">Name</label>
-                  <input id="name" type="text" placeholder="Your name" />
-                </div>
-                <div class="field">
-                  <label for="email">Email</label>
-                  <input id="email" type="email" placeholder="you@example.com" />
-                </div>
-                <div class="field">
-                  <label for="message">Message</label>
-                  <textarea id="message" placeholder="Tell us what you need..."></textarea>
-                </div>
-                <a class="btn primary" href="#home" aria-label="Send inquiry">Send inquiry</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="cta">
-        <div class="cta-box">
+    <!-- ══════ CTA ══════ -->
+    <section class="cta-section">
+      <div class="wrap">
+        <div class="cta-box reveal">
           <div>
-            <div class="eyebrow">Final touch</div>
-            <h2>One identity across every touchpoint.</h2>
-            <p>
-              The page is now ready for your replacement images and video, with a cleaner brand
-              name, new visual direction, and a layout built around trust and consistency.
-            </p>
+            <div class="section-label">Ready</div>
+            <h2>One identity,<br/><em>every touchpoint.</em></h2>
+            <p>The brand system is complete. Product, packaging, campaign, and trust — all speaking the same visual language.</p>
           </div>
           <div class="hero-actions" style="margin-top: 0;">
-            <a class="btn primary" href="#home">Back to top</a>
-            <a class="btn secondary" href="#trust">Review trust</a>
+            <a class="btn btn-primary" href="#home">Back to top</a>
+            <a class="btn btn-ghost" href="#trust">Review trust</a>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <footer class="footer">
-        <div class="logo-row" aria-hidden="true">
-          <svg class="leaf" viewBox="0 0 24 24">
+    <!-- ══════ FOOTER ══════ -->
+    <footer class="footer">
+      <div class="wrap">
+        <div class="footer-brand">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="color: var(--leaf);">
             <path d="M12 20c0-6 2.5-11.2 7.2-15"/>
             <path d="M12 20c0-4.7-2.6-9.1-7.2-11.8"/>
           </svg>
+          <strong>Mireva Botanics</strong>
         </div>
-        Mireva Botanics | created by Mireva Lab
-        <div style="margin-top: 6px; font-size: 0.84rem; opacity: 0.82;">
-          Portfolio concept only. Non-commercial use.
-        </div>
-      </footer>
-    </main>
-  </div>
+        <p>Portfolio concept only. Non-commercial use.</p>
+      </div>
+    </footer>
+  </main>
 
   <script>
+    // Reveal on scroll
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in-view');
+          revealObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // Hero slider: video first, then images
     (function () {
       const slider = document.getElementById('heroSlider');
       if (!slider) return;
 
       const slides = Array.from(slider.querySelectorAll('.hero-slide'));
       const dotsWrap = document.getElementById('sliderDots');
-      const prevButton = document.getElementById('heroPrev');
-      const nextButton = document.getElementById('heroNext');
-      const videos = slides.map((slide) => slide.querySelector('video')).filter(Boolean);
-      let index = slides.findIndex((slide) => slide.classList.contains('active'));
-      if (index < 0) index = 0;
+      const video = slides[0]?.querySelector('video');
+      let index = 0;
       let timer = null;
+      let videoEnded = false;
 
-      document.querySelectorAll('img, video').forEach((media) => {
-        media.setAttribute('draggable', 'false');
-      });
-
-      videos.forEach((video) => {
-        video.setAttribute('controlsList', 'nodownload noplaybackrate noremoteplayback');
-        video.setAttribute('disablePictureInPicture', '');
-      });
-
+      // Create dots
       slides.forEach((_, i) => {
-        const button = document.createElement('button');
-        button.className = 'dot' + (i === index ? ' active' : '');
-        button.type = 'button';
-        button.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-        button.addEventListener('click', () => goTo(i, true));
-        dotsWrap.appendChild(button);
+        const btn = document.createElement('button');
+        btn.className = 'dot' + (i === 0 ? ' active' : '');
+        btn.type = 'button';
+        btn.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+        btn.addEventListener('click', () => { goTo(i); restart(); });
+        dotsWrap.appendChild(btn);
       });
-
       const dots = Array.from(dotsWrap.querySelectorAll('.dot'));
 
-      function stopVideo(slide) {
-        const video = slide.querySelector('video');
-        if (!video) return;
-        video.pause();
-        video.currentTime = 0;
-      }
-
-      function playActiveVideo(slide) {
-        const video = slide.querySelector('video');
-        if (!video || !slide.classList.contains('active')) return;
-        const attempt = video.play();
-        if (attempt && typeof attempt.catch === 'function') {
-          attempt.catch(() => {});
-        }
-      }
-
-      function goTo(next, manual) {
-        const currentSlide = slides[index];
-        stopVideo(currentSlide);
-        currentSlide.classList.remove('active');
+      function goTo(next) {
+        slides[index].classList.remove('active');
         dots[index].classList.remove('active');
+
+        // Pause video when leaving
+        if (index === 0 && video) {
+          video.pause();
+          video.currentTime = 0;
+        }
 
         index = next;
         slides[index].classList.add('active');
         dots[index].classList.add('active');
 
-        if (slider.matches(':hover')) {
-          playActiveVideo(slides[index]);
+        // Play video when arriving
+        if (index === 0 && video) {
+          video.currentTime = 0;
+          video.play().catch(() => {});
         }
-
-        if (manual) restart();
       }
 
       function nextSlide() {
-        goTo((index + 1) % slides.length, false);
-      }
-
-      function prevSlide() {
-        goTo((index - 1 + slides.length) % slides.length, true);
+        goTo((index + 1) % slides.length);
       }
 
       function restart() {
         clearInterval(timer);
-        timer = setInterval(nextSlide, 4200);
+        // If video is active, wait for it to end
+        if (index === 0 && video && !videoEnded) {
+          video.onended = function () {
+            videoEnded = true;
+            nextSlide();
+            restart();
+          };
+          return;
+        }
+        timer = setInterval(nextSlide, 3800);
       }
 
-      prevButton.addEventListener('click', prevSlide);
-      nextButton.addEventListener('click', () => goTo((index + 1) % slides.length, true));
+      // Start: play video, then auto-advance
+      if (video) {
+        video.play().catch(() => {});
+        video.onended = function () {
+          videoEnded = true;
+          nextSlide();
+          restart();
+        };
+        // Fallback: if video fails to load, start image rotation
+        video.onerror = function () {
+          videoEnded = true;
+          restart();
+        };
+      } else {
+        restart();
+      }
 
+      // Hover pauses
       slider.addEventListener('mouseenter', () => {
         clearInterval(timer);
-        playActiveVideo(slides[index]);
+        if (index === 0 && video) video.pause();
       });
 
       slider.addEventListener('mouseleave', () => {
-        slides.forEach(stopVideo);
+        if (index === 0 && video) video.play().catch(() => {});
         restart();
       });
 
-      videos.forEach((video) => {
-        const slide = video.closest('.hero-slide');
-        slide.addEventListener('mouseenter', () => playActiveVideo(slide));
-        slide.addEventListener('mouseleave', () => stopVideo(slide));
-      });
+      // Touch swipe support
+      let touchStartX = 0;
+      let touchEndX = 0;
+      const SWIPE_THRESHOLD = 50;
 
-      restart();
+      slider.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        clearInterval(timer);
+        if (index === 0 && video) video.pause();
+      }, { passive: true });
+
+      slider.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+
+        if (Math.abs(diff) > SWIPE_THRESHOLD) {
+          if (diff > 0) {
+            // Swipe left → next
+            goTo((index + 1) % slides.length);
+          } else {
+            // Swipe right → prev
+            goTo((index - 1 + slides.length) % slides.length);
+          }
+        }
+
+        if (index === 0 && video) video.play().catch(() => {});
+        restart();
+      }, { passive: true });
     })();
   </script>
 </body>
