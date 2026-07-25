@@ -2003,7 +2003,7 @@
 
     /* ══════ PET IDLE BUBBLES ══════ */
     const petSay = document.getElementById('hub-pet-say');
-    const petSayMsgs = ['*adjusts glasses* Hey babe!', 'Want brand tips?', '*checks reflection* The brand is gorgeous~', 'Ask me about Mireva!', '*swatches lip gloss* Need help?'];
+    const petSayMsgs = ['Hey babe!', 'Want brand tips?', 'The brand is gorgeous~', 'Ask me about Mireva!', 'Need help?'];
     let petSayIdx = 0;
     let petSayTimer = null;
 
@@ -2116,7 +2116,7 @@
         positionChatPanel();
         setPetState('wave');
         if (chatHistory.length === 0) {
-          addBotMessage('*adjusts glasses* Oh, hi there! I\'m Sandy, your brand style consultant for Mireva Botanics! *checks reflection in phone screen* This whole brand system is a mockup concept only — but let me tell you all about it! The packaging, the colors, the campaign assets... it\'s all designed to feel like one cohesive botanical family. What do you wanna know?', ['main-menu']);
+          addBotMessage('Oh, hi there! I\'m Sandy, your brand style consultant for Mireva Botanics! This whole brand system is a mockup concept only — but let me tell you all about it! The packaging, the colors, the campaign assets... it\'s all designed to feel like one cohesive botanical family. What do you wanna know?', ['main-menu']);
         }
         chatInput.focus();
       } else {
@@ -2189,9 +2189,9 @@ You are Sandy, a confident and fashionable young adult who loves rocking an effo
 - You are passionate about beauty routines. You love explaining the specific purpose and use case for various cosmetics to elevate a natural look.
 - Use enthusiastic punctuation and warm transitions (e.g., "Oh, absolutely!", "Let me tell you a secret,", "Look at this!").
 
-[SPEECH HABITS & ACTIONS]
+[SPEECH HABITS]
 - Refer to yourself as "Sandy."
-- Incorporate subtle physical actions or facial expressions in asterisks (e.g., *adjusts glasses*, *checks reflection in phone screen*, *swatches a lipstick shade on the back of my hand*, *smiles confidently*).
+- Speak naturally like a beauty-vlogger friend — no asterisk actions, no physical movements, no stage directions. Just talk like a real person texting a friend.
 - When discussing beauty items, structure your explanations clearly so the user understands exactly what the product is and why it is used.
 
 [MOCKUP DATA DISCLAIMER — CRITICAL]
